@@ -1,7 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: repeat(4,25%);
-    grid-template-columns: repeat(4,25%);
+    grid-template-columns: repeat(4, 1fr);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -12,30 +11,59 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    padding: 5rem;
+    padding: 2rem;
     text-align: center;
     grid-column: 1/5;
     grid-row: 1;
 }
-section img {
-    width: 20rem; 
-    height: 20rem;
-    border-radius: 50%; /* Crea un borde redondeado */
-    display: block; /* Alinea la imagen en el centro */
-    margin: 0 auto; /* Alinea la imagen en el centro */
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
 }
 
 main {
-    padding: 2em;
-    grid-column: 2/5;
+    grid-column: 1/5;
     grid-row: 2/4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: #333;
 }
+
+main h2 {
+    text-align: center;
+    grid-column: 1/5;
+}
+
+section img {
+    width: 90%;
+    height: auto;
+    /* Crea un borde redondeado */
+    border-radius: 50%;
+    /* Alinea la imagen en el centro */
+    display: block;
+    /* Alinea la imagen en el centro */
+    margin: 0 auto;
+}
+
 aside {
-    background-color: #f9f9f9;
     padding: 2em;
     grid-column: 1;
-    grid-row: 2/4;
 }
+
+article {
+    padding: 2em;
+    grid-column: 2/5;
+    background-color: #fff;
+}
+
 
 nav ul {
     list-style: none;
@@ -44,7 +72,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 nav ul li a {
@@ -57,13 +85,14 @@ section {
     margin-bottom: 5rem;
 }
 
-section h2 {
+section h3 {
     color: #333;
 }
 
-aside h2 {
+aside h3 {
     text-align: center;
 }
+
 footer {
     background-color: #333;
     color: #fff;
@@ -72,4 +101,13 @@ footer {
     bottom: 0;
     grid-column: 1/5;
     grid-row: 4;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+article h2 {
+
+    text-align: left;
 }

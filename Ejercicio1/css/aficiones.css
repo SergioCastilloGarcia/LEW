@@ -1,0 +1,27 @@
+main {
+    padding: 0rem;
+    grid-column: 1/5;
+}
+
+main h2 {
+    grid-row: 1;
+    grid-column: 1/5;
+}
+
+/* Aplica un fondo de otro color a cada segunda sección */
+section {
+    text-align: center;
+    grid-row: 2;
+}
+
+/* Aplica un fondo de otro color a cada segunda sección */
+section:nth-child(even) {
+    background-color: #ffffff;
+    margin-bottom: 0rem;
+}
+
+section img {
+    /* Crea un borde redondeado */
+    border-radius: 10%;
+    max-height: 15rem;
+}
