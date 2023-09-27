@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3);
+    /* Columna única para toda la página */
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    grid-column: 1;
+    grid-row: 1;
+    color: #FBB500;
+    background-color: #1B1B1B;
+    border: 1em;
+    border-color: #FBB500;
+    border-style: double;
+}
+
+nav {
+    background-color: #1B1B1B;
+    color: white;
+    padding: 10px;
+    grid-column: 2/-1;
+    grid-row: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row: 2;
+    grid-column: 1/-1;
+}
+
+
+main p {
+    margin-bottom: 10px;
+    grid-column: 1/-1;
+
+}
+
+main section {
+    grid-column: 2/-1;
+
+}
+
+aside {
+    grid-column: 1;
+    grid-row: 3/4;
+}
+
+article,
+section,
+aside {
+    margin-bottom: 20px;
+}
+
+article h2,
+section h2,
+aside h2 {
+    margin-bottom: 10px;
+}
+
+article ul,
+section ul,
+aside ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+footer {
+    background-color: #1B1B1B;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    bottom: 0;
+    grid-row: 3;
+    grid-column: 1/-1;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer li {
+    display: inline;
+    margin-right: 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
