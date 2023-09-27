@@ -7,26 +7,32 @@ body {
     grid-template-rows: repeat(3);
     /* Columna única para toda la página */
     min-height: 100vh;
+    background-color: #1B1B1B;
 }
 
 header {
     text-align: center;
-    padding: 20px;
+    padding-left: 1rem;
     grid-column: 1;
     grid-row: 1;
     color: #FBB500;
-    background-color: #1B1B1B;
-    border: 1em;
-    border-color: #FBB500;
-    border-style: double;
 }
+header h1{
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: 0.2em;
+    border-color: #FBB500;
+    border-style: solid;
 
+}
 nav {
-    background-color: #1B1B1B;
     color: white;
-    padding: 10px;
     grid-column: 2/-1;
     grid-row: 1;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    align-self: end; /* Para colocarlo en la parte inferior de la casilla */
 }
 
 nav ul {
@@ -35,16 +41,21 @@ nav ul {
 }
 
 nav li {
+    margin-left: 2rem;
     display: inline;
     margin-right: 10px;
+    border-bottom: 0.5rem solid #FBB500; 
 }
 
 nav a {
     color: white;
     text-decoration: none;
 }
-
+nav ul li:first-of-type{
+    border-bottom: 0.5rem solid #FF6000; /* Cambia el color aquí */
+}
 main {
+    background-color: white;
     padding: 20px;
     gap: 20px;
     display: grid;
@@ -90,7 +101,6 @@ aside ul {
 }
 
 footer {
-    background-color: #1B1B1B;
     color: #fff;
     text-align: center;
     padding: 2rem;
