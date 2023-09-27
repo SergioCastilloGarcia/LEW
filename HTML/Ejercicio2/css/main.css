@@ -4,8 +4,7 @@
         padding: 0;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(3);
-        /* Columna única para toda la página */
+        grid-template-rows: auto; /* Altura automática según el contenido */
         min-height: 100vh;
         background-color: #1B1B1B;
         
@@ -68,49 +67,61 @@
     }
 
     main p {
-        width: 120%;
         margin-bottom: 15rem;
         color: #1B1B1B;
         font-size: 2rem;
         text-align: center; 
         background-color: white ;
-        border: 0.2em;
+        border: 0.5em;
         border-color: #1B1B1B;
         border-style: solid;
         box-shadow: 0px 0px 0px 20px #FBB500; /* Ajusta el valor para la distancia */
         margin-top: 15rem;
+        position: absolute
     }
     
-    main p:nth-child(2n+1) { 
-        grid-column: 3/-2;
-    }
     main p:nth-child(2n) { 
-        grid-column: 2/-3;
+        top: 10%; /* Coloca el párrafo en la parte superior */
+        left: 30%; /* Coloca el párrafo en la parte izquierda */
+        right: 10%;
+        padding: 2rem; /* Ajusta el espacio alrededor del párrafo */
     }
+    main p:nth-child(2n+1) { 
+        top: 130%; /* Coloca el párrafo en la parte superior */
+        left: 10%; /* Coloca el párrafo en la parte izquierda */
+        right: 30%;
+        padding: 2rem; /* Ajusta el espacio alrededor del párrafo */
+    }
+    article,
     section p {
+        position: relative;
         width: 100%;
         margin: 0; /* Elimina márgenes para ocupar todo el ancho */
         padding: 0; /* Elimina relleno para ocupar todo el ancho */
         
         color: #1B1B1B;
+        border:0rem;
+        box-shadow: 0px 0px 0px 0px; /* Ajusta el valor para la distancia */
         font-size: 1rem;
-        text-align: center; 
+        margin-top: 0rem;
     }
-    main section {
-        grid-column: 2/-1;
+   
+
+    article p{
+        text-align: start; 
 
     }
-
     aside {
         grid-column: 1;
         grid-row: 3/4;
     }
 
     article,
-    section,
-    aside {
-        margin-bottom: 20px;
+    section
+     {
+        grid-column: 2/-1;
     }
+
 
     article h2,
     section h2,
@@ -147,4 +158,11 @@
     footer a {
         color: white;
         text-decoration: none;
+    }
+
+    main img{
+        width: 100%;
+        height: auto;
+        grid-column: 1/-1;
+        display: block;
     }
