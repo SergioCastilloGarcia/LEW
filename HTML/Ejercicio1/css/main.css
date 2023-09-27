@@ -108,8 +108,12 @@ p {
 }
 
 article h2 {
-
     text-align: left;
+}
+
+img {
+    /* Transición suave al agrandar */
+    transition: transform 0.3s ease-in-out;
 }
 
 img:hover {
