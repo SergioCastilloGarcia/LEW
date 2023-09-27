@@ -10,88 +10,7 @@
         
     }
 
-    header {
-        text-align: center;
-        padding-left: 1rem;
-        grid-column: 1;
-        grid-row: 1;
-        color: #FBB500;
-    }
-    header h1{
-        font-size: 1.5rem;
-        padding: 1rem;
-        border: 0.2em;
-        border-color: #FBB500;
-        border-style: solid;
 
-    }
-    nav {
-        color: white;
-        grid-column: 2/-1;
-        grid-row: 1;
-        font-size: 1.4rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        align-self: end; /* Para colocarlo en la parte inferior de la casilla */
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    nav li {
-        margin-left: 2rem;
-        display: inline;
-        margin-right: 10px;
-        border-bottom: 0.5rem solid #FBB500; 
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-    }
-    nav ul li:first-of-type{
-        border-bottom: 0.5rem solid #FF6000; /* Cambia el color aquí */
-    }
-    main {
-        background-color: white;
-        gap: 2rem;  
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-row: 2;
-        grid-column: 1/-1;
-        /*background-image: url('../resources/fondo-cueva-1.jpg   '); /* Ruta de tu imagen */
-        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
-        background-repeat: no-repeat; /* Evita que la imagen se repita */
-    }
-
-    main p {
-        margin-bottom: 15rem;
-        color: #1B1B1B;
-        font-size: 2rem;
-        text-align: center; 
-        background-color: white ;
-        border: 0.5em;
-        border-color: #1B1B1B;
-        border-style: solid;
-        box-shadow: 0px 0px 0px 20px #FBB500; /* Ajusta el valor para la distancia */
-        margin-top: 15rem;
-        position: absolute
-    }
-    
-    main p:nth-child(2n) { 
-        top: 10%; /* Coloca el párrafo en la parte superior */
-        left: 30%; /* Coloca el párrafo en la parte izquierda */
-        right: 10%;
-        padding: 2rem; /* Ajusta el espacio alrededor del párrafo */
-    }
-    main p:nth-child(2n+1) { 
-        top: 130%; /* Coloca el párrafo en la parte superior */
-        left: 10%; /* Coloca el párrafo en la parte izquierda */
-        right: 30%;
-        padding: 2rem; /* Ajusta el espacio alrededor del párrafo */
-    }
     article,
     section p {
         position: relative;
@@ -158,11 +77,4 @@
     footer a {
         color: white;
         text-decoration: none;
-    }
-
-    main img{
-        width: 100%;
-        height: auto;
-        grid-column: 1/-1;
-        display: block;
     }

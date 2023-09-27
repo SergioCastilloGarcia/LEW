@@ -1,0 +1,46 @@
+main {
+    background-color: white;
+    gap: 2rem;  
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-row: 2;
+    grid-column: 1/-1;
+}
+
+main p {
+    margin-bottom: 15rem;
+    color: #1B1B1B;
+    font-size: 2rem;
+    text-align: left; 
+    background-color: white ;
+    border: 0.5em;
+    border-color: #1B1B1B;
+    border-style: solid;
+    box-shadow: 0px 0px 0px 20px #FBB500; /* Ajusta el valor para la distancia */
+    margin-top: 15rem;
+}
+
+main p:nth-child(2n) { 
+    grid-row: 1; /* Ocupa la primera fila */
+    grid-column: 3/-2;
+}
+main p:nth-child(2n+1) { 
+    grid-row: 2; /* Ocupa la primera fila */
+    grid-column: 2/-3;
+}
+
+
+main img{
+    width: 100%;
+    height: auto;
+    grid-column: 1/-1;
+    display: block;
+}
+ 
+main img:nth-child(2n) { 
+    grid-row: 2; /* Ocupa la primera fila */
+}
+
+main img:nth-child(2n+1) { 
+    grid-row: 1; /* Ocupa la primera fila */
+}
