@@ -1,125 +1,150 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3);
-    /* Columna única para toda la página */
-    min-height: 100vh;
-    background-color: #1B1B1B;
-}
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3);
+        /* Columna única para toda la página */
+        min-height: 100vh;
+        background-color: #1B1B1B;
+        
+    }
 
-header {
-    text-align: center;
-    padding-left: 1rem;
-    grid-column: 1;
-    grid-row: 1;
-    color: #FBB500;
-}
-header h1{
-    font-size: 1.5rem;
-    padding: 1rem;
-    border: 0.2em;
-    border-color: #FBB500;
-    border-style: solid;
+    header {
+        text-align: center;
+        padding-left: 1rem;
+        grid-column: 1;
+        grid-row: 1;
+        color: #FBB500;
+    }
+    header h1{
+        font-size: 1.5rem;
+        padding: 1rem;
+        border: 0.2em;
+        border-color: #FBB500;
+        border-style: solid;
 
-}
-nav {
-    color: white;
-    grid-column: 2/-1;
-    grid-row: 1;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    align-self: end; /* Para colocarlo en la parte inferior de la casilla */
-}
+    }
+    nav {
+        color: white;
+        grid-column: 2/-1;
+        grid-row: 1;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        align-self: end; /* Para colocarlo en la parte inferior de la casilla */
+    }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-nav li {
-    margin-left: 2rem;
-    display: inline;
-    margin-right: 10px;
-    border-bottom: 0.5rem solid #FBB500; 
-}
+    nav li {
+        margin-left: 2rem;
+        display: inline;
+        margin-right: 10px;
+        border-bottom: 0.5rem solid #FBB500; 
+    }
 
-nav a {
-    color: white;
-    text-decoration: none;
-}
-nav ul li:first-of-type{
-    border-bottom: 0.5rem solid #FF6000; /* Cambia el color aquí */
-}
-main {
-    background-color: white;
-    padding: 20px;
-    gap: 20px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-row: 2;
-    grid-column: 1/-1;
-}
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+    nav ul li:first-of-type{
+        border-bottom: 0.5rem solid #FF6000; /* Cambia el color aquí */
+    }
+    main {
+        background-color: white;
+        gap: 2rem;  
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-row: 2;
+        grid-column: 1/-1;
+        /*background-image: url('../resources/fondo-cueva-1.jpg   '); /* Ruta de tu imagen */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+    }
 
+    main p {
+        width: 120%;
+        margin-bottom: 15rem;
+        color: #1B1B1B;
+        font-size: 2rem;
+        text-align: center; 
+        background-color: white ;
+        border: 0.2em;
+        border-color: #1B1B1B;
+        border-style: solid;
+        box-shadow: 0px 0px 0px 20px #FBB500; /* Ajusta el valor para la distancia */
+        margin-top: 15rem;
+    }
+    
+    main p:nth-child(2n+1) { 
+        grid-column: 3/-2;
+    }
+    main p:nth-child(2n) { 
+        grid-column: 2/-3;
+    }
+    section p {
+        width: 100%;
+        margin: 0; /* Elimina márgenes para ocupar todo el ancho */
+        padding: 0; /* Elimina relleno para ocupar todo el ancho */
+        
+        color: #1B1B1B;
+        font-size: 1rem;
+        text-align: center; 
+    }
+    main section {
+        grid-column: 2/-1;
 
-main p {
-    margin-bottom: 10px;
-    grid-column: 1/-1;
+    }
 
-}
+    aside {
+        grid-column: 1;
+        grid-row: 3/4;
+    }
 
-main section {
-    grid-column: 2/-1;
+    article,
+    section,
+    aside {
+        margin-bottom: 20px;
+    }
 
-}
+    article h2,
+    section h2,
+    aside h2 {
+        margin-bottom: 10px;
+    }
 
-aside {
-    grid-column: 1;
-    grid-row: 3/4;
-}
+    article ul,
+    section ul,
+    aside ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
 
-article,
-section,
-aside {
-    margin-bottom: 20px;
-}
+    footer {
+        color: #fff;
+        text-align: center;
+        padding: 2rem;
+        bottom: 0;
+        grid-row: 3;
+        grid-column: 1/-1;
+    }
 
-article h2,
-section h2,
-aside h2 {
-    margin-bottom: 10px;
-}
+    footer ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-article ul,
-section ul,
-aside ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
+    footer li {
+        display: inline;
+        margin-right: 10px;
+    }
 
-footer {
-    color: #fff;
-    text-align: center;
-    padding: 2rem;
-    bottom: 0;
-    grid-row: 3;
-    grid-column: 1/-1;
-}
-
-footer ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-footer li {
-    display: inline;
-    margin-right: 10px;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-}
+    footer a {
+        color: white;
+        text-decoration: none;
+    }
