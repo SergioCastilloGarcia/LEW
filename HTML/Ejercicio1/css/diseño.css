@@ -7,7 +7,9 @@ main {
 section {
     text-align: center;
     margin-bottom: 0rem;
-    display: flex; /* Mostrar contenido en línea */
+    display: grid;
+    /* Mostrar contenido en línea */
+    grid-template-columns: repeat(5, 1fr);
     padding: 2em;
 }
 
@@ -15,14 +17,46 @@ section {
 section:nth-child(2n) {
     background-color: #ffffff;
 }
+
 article:nth-child(2n+1) {
     background-color: #f0f0f0;
 }
-article h2{
-    text-align: center  ;
-}
+
 section img {
     /* Crea un borde redondeado */
     border-radius: 10%;
     max-height: 30rem;
+    grid-row: 1/5;
+}
+
+section h2 {
+    grid-row: 1;
+}
+
+section p {
+    grid-row: 2;
+}
+
+section img:nth-child(3n) {
+    grid-column: 3/6;
+}
+
+section h2:nth-child(2n) {
+    grid-column: 4/6;
+}
+
+section p:nth-child(2n+1) {
+    grid-column: 4/6;
+}
+
+section img:nth-child(3n+1) {
+    grid-column: 1/4;
+}
+
+section h2:nth-child(2n+1) {
+    grid-column: 1/3;
+}
+
+section p:nth-child(2n) {
+    grid-column: 1/3;
 }
