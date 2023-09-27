@@ -82,7 +82,7 @@ nav ul li a {
 
 
 section {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 section h3 {
@@ -110,4 +110,9 @@ p {
 article h2 {
 
     text-align: left;
+}
+
+img:hover {
+    /* Agrandar la imagen al hacer hover */
+    transform: scale(1.15);
 }

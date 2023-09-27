@@ -28,8 +28,3 @@ section img {
     border-radius: 1rem;
     margin-bottom: 2rem;
 }
-
-img:hover {
-    transform: scale(1.15);
-    /* Agrandar la imagen al hacer hover */
-}
