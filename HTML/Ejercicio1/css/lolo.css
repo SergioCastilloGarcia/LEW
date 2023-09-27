@@ -1,0 +1,35 @@
+main {
+    padding: 0rem;
+    display: list-item;
+}
+
+h3 {
+    text-align: center;
+    grid-column: 1/-1;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    /* Columnas autoajustables */
+
+}
+
+section img {
+    width: 80%;
+    border-radius: 10%;
+    /* Sombreado */
+    box-shadow: 0 0 5rem rgba(0, 0, 0, 0.1);
+    /* Color de fondo de la tarjeta */
+    background-color: #fff;
+    /* Espacio interno */
+    padding: 1rem;
+    /* Bordes redondeados */
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+img:hover {
+    transform: scale(1.15);
+    /* Agrandar la imagen al hacer hover */
+}
