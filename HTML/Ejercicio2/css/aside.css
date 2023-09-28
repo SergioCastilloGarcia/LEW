@@ -14,7 +14,6 @@ aside h2 {
     grid-row: 1;
     /*grid-column: 3/9;*/
     grid-column: 1/-1;
-    font-size: 3rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-bottom: 5rem;

@@ -1,0 +1,35 @@
+main article {
+    background-color: white;
+    padding-bottom: 5rem;
+}
+
+main article h2 {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+main article ul {
+    display: grid;
+    grid-template-columns: (2, 1fr);
+    list-style: none;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    gap: 5rem;
+}
+
+article ul li {
+    width: 75%;
+    padding-left: 5rem;
+}
+
+
+article ul li:nth-child(2n+1) {
+    grid-column: 1;
+}
+
+article ul li:nth-child(2n) {
+    grid-column: 2;
+}
