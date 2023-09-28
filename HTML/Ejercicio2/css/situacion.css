@@ -1,0 +1,14 @@
+/*Situacion*/
+main section:nth-child(2n) {
+    background-color: aqua;
+    padding-bottom: 10rem;
+}
+
+main section:nth-child(2n) h2 {
+    padding-bottom: 5rem;
+}
+
+main section:nth-child(2n) p {
+    background-color: aqua;
+    font-size: 200%;
+}

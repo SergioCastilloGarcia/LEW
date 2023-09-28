@@ -58,4 +58,14 @@
 
     h2 {
         font-size: 3rem;
+        text-align: center;
+
+    }
+
+    section h2 {
+        text-transform: uppercase;
+    }
+
+    section {
+        padding: 2rem;
     }

@@ -1,0 +1,117 @@
+main section:nth-child(2n+1) {
+    display: grid;
+    column-gap: 3rem;
+    grid-template-areas:
+        'h1 n1 n2 n3'
+        'i1 i2 i3 i4'
+        't1 t2 t3 t4'
+        'p1 p2 p3 p4'
+        'i5 i6 i7 n4'
+        't5 t6 t7 n5'
+        'p5 p6 p7 n6';
+
+}
+
+main section:nth-child(2n+1) h2 {
+    grid-row: 1;
+    grid-column: 1/-1;
+}
+
+main section:nth-child(2n+1) img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+main section:nth-child(2n+1) h3 {
+    font-size: 1.2em;
+}
+
+main section:nth-child(2n+1) p {
+    font-size: 1em;
+    margin: 0;
+    margin-bottom: 3rem;
+}
+
+main section:nth-child(2n+1) h3:nth-child(3) {
+    grid-area: t1;
+}
+
+main section:nth-child(2n+1) h3:nth-child(6) {
+    grid-area: t2;
+}
+
+main section:nth-child(2n+1) h3:nth-child(9) {
+    grid-area: t3;
+}
+
+main section:nth-child(2n+1) h3:nth-child(12) {
+    grid-area: t4;
+}
+
+main section:nth-child(2n+1) h3:nth-child(15) {
+    grid-area: t5;
+}
+
+main section:nth-child(2n+1) h3:nth-child(18) {
+    grid-area: t6;
+}
+
+main section:nth-child(2n+1) h3:nth-child(21) {
+    grid-area: t7;
+}
+
+main section:nth-child(2n+1) p:nth-child(4) {
+    grid-area: p1;
+}
+
+main section:nth-child(2n+1) p:nth-child(7) {
+    grid-area: p2;
+}
+
+main section:nth-child(2n+1) p:nth-child(10) {
+    grid-area: p3;
+}
+
+main section:nth-child(2n+1) p:nth-child(13) {
+    grid-area: p4;
+}
+
+main section:nth-child(2n+1) p:nth-child(16) {
+    grid-area: p5;
+}
+
+main section:nth-child(2n+1) p:nth-child(19) {
+    grid-area: p6;
+}
+
+main section:nth-child(2n+1) p:nth-child(22) {
+    grid-area: p7;
+}
+
+main section:nth-child(2n+1) img:nth-child(2) {
+    grid-area: i1;
+}
+
+main section:nth-child(2n+1) img:nth-child(5) {
+    grid-area: i2;
+}
+
+main section:nth-child(2n+1) img:nth-child(8) {
+    grid-area: i3;
+}
+
+main section:nth-child(2n+1) img:nth-child(11) {
+    grid-area: i4;
+}
+
+main section:nth-child(2n+1) img:nth-child(14) {
+    grid-area: i5;
+}
+
+main section:nth-child(2n+1) img:nth-child(17) {
+    grid-area: i6;
+}
+
+main section:nth-child(2n+1) img:nth-child(20) {
+    grid-area: i7;
+}
