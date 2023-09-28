@@ -12,26 +12,28 @@ main p {
     height: fit-content;
     color: #1B1B1B;
     font-size: 150%;
-    text-align: left;
+    text-align: justify;
     background-color: white;
     border: 1em;
-    border-color: #1B1B1B;
+    border-color: transparent;
+    /* Evita que el fondo se extienda al borde */
+    background-clip: padding-box;
     border-style: solid;
     box-shadow: 0px 0px 0px 20px #FBB500;
     /* Ajusta el valor para la distancia */
     margin-top: 10rem;
+    padding: 2rem;
+    grid-column: 2/-2;
 }
 
 main p:nth-child(2n) {
     grid-row: 2;
-    /* Ocupa la primera fila */
-    grid-column: 3/-2;
+    border-left-width: 10rem;
 }
 
 main p:nth-child(2n+1) {
     grid-row: 5;
-    /* Ocupa la primera fila */
-    grid-column: 2/-3;
+    border-right-width: 10rem;
 }
 
 
