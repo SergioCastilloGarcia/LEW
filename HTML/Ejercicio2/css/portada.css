@@ -1,5 +1,6 @@
 main {
     background-color: #f0f0f0;
+    /*Hereda -color de body*/
     gap: 2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);

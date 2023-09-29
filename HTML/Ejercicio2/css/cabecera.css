@@ -4,6 +4,7 @@ header {
     grid-column: 3/4;
     grid-row: 1;
     color: #FBB500;
+    /*Hereda background-color de main*/
 }
 
 header h1 {
@@ -17,6 +18,7 @@ header h1 {
 
 nav {
     color: white;
+    /*Hereda background-color de main*/
     grid-column: 4/-1;
     grid-row: 1;
     font-size: 1.4rem;
@@ -32,9 +34,8 @@ nav ul {
 }
 
 nav li {
-    margin-left: 2rem;
+    margin-left: 3rem;
     display: inline;
-    margin-right: 10px;
     border-bottom: 0.5rem solid #FBB500;
 }
 
@@ -45,5 +46,5 @@ nav a {
 
 nav ul li:first-of-type {
     border-bottom: 0.5rem solid #FF6000;
-    /* Cambia el color aquí */
+    /*Hereda background-color de li*/
 }

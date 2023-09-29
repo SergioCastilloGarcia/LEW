@@ -4,6 +4,7 @@ aside {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(3, auto);
     background-color: #1B1B1B;
+    /*Hereda color de main*/
     padding-bottom: 10rem;
     margin-bottom: 2rem;
 }
@@ -36,10 +37,12 @@ aside ul {
 
 aside ul li {
     color: white;
+    /*Hereda background-color de ul*/
 }
 
 aside ul li:nth-child(3n) {
     color: white;
+    /*Hereda background-color de ul*/
 }
 
 aside img {

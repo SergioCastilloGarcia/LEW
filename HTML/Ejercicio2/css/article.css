@@ -1,6 +1,7 @@
 main article {
     background-color: white;
     padding-bottom: 5rem;
+    /*Hereda color de main*/
 }
 
 main article h2 {
@@ -12,7 +13,6 @@ main article h2 {
 
 main article ul {
     display: grid;
-    grid-template-columns: (2, 1fr);
     list-style: none;
     padding-left: 3rem;
     padding-right: 3rem;

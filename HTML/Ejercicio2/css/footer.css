@@ -1,5 +1,6 @@
 footer {
     background-color: white;
+    /*Hereda color de body*/
     text-align: center;
     padding: 1rem;
     bottom: 0;
@@ -36,6 +37,7 @@ footer ul li {
 footer ul li a {
     font-size: 1.5rem;
     color: #1B1B1B;
+    /*Hereda background-color de li*/
     text-decoration: none;
     font-weight: bold;
 }

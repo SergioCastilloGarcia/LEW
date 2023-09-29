@@ -9,7 +9,7 @@
         min-height: 100vh;
         background-color: #1B1B1B;
         color: #1B1B1B;
-        ;
+        /*Que el color y background-color son igual es cosa del diseño*/
 
     }
 
@@ -24,11 +24,11 @@
         /* Elimina relleno para ocupar todo el ancho */
 
         color: #1B1B1B;
+        /*Hereda background-color de article y section*/
         border: 0rem;
         box-shadow: 0px 0px 0px 0px;
         /* Ajusta el valor para la distancia */
         font-size: 1rem;
-        margin-top: 0rem;
     }
 
 

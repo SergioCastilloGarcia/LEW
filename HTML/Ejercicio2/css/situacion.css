@@ -1,10 +1,9 @@
 /*Situacion*/
 main section:nth-child(2n) {
     background-color: #FF6000;
-    margin-top: 2rem;
     margin: 2rem;
     padding-top: 0rem;
-    background-color: white;
+    /*Hereda color de main*/
     font-weight: bold;
 }
 
