@@ -17,6 +17,7 @@ section {
 /* Aplica un fondo de otro color a cada segunda sección */
 section:nth-child(2n+1) {
     background-color: #ffffff;
+    /*Hereda color de section*/
     margin-bottom: 0rem;
 }
 

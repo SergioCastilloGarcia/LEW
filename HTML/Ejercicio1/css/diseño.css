@@ -16,10 +16,12 @@ section {
 /* Aplica un fondo de otro color a cada segunda sección */
 section:nth-child(2n) {
     background-color: #ffffff;
+    /*Hereda color de section*/
 }
 
 article:nth-child(2n+1) {
     background-color: #f0f0f0;
+    /*Hereda color de article*/
 }
 
 section img {
@@ -87,5 +89,6 @@ section a {
 
 section a:hover {
     background-color: #0056b3;
+    /*Hereda color de a*/
     border: 1px solid #0056b3;
 }

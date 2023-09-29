@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
+    color: #333;
 }
 
 
@@ -35,6 +36,7 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     color: #333;
+    /*Heredaa background-color de body*/
 }
 
 main h2 {
@@ -62,6 +64,7 @@ article {
     padding: 2em;
     grid-column: 2/5;
     background-color: #fff;
+    color: #333;
 }
 
 
@@ -77,6 +80,7 @@ nav ul li {
 
 nav ul li a {
     color: #fff;
+    /*Hereda background-color de header*/
     text-decoration: none;
 }
 
@@ -87,6 +91,7 @@ section {
 
 section h3 {
     color: #333;
+    /*Hereda background-color de section*/
 }
 
 aside h3 {

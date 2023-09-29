@@ -22,6 +22,7 @@ section img {
     box-shadow: 0 0 5rem rgba(0, 0, 0, 0.1);
     /* Color de fondo de la tarjeta */
     background-color: #fff;
+    /*No necesita color*/
     /* Espacio interno */
     padding: 1rem;
     /* Bordes redondeados */
