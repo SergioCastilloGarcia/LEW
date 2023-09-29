@@ -4,6 +4,7 @@ main section:nth-child(2n) {
     margin-top: 2rem;
     margin: 2rem;
     padding-top: 0rem;
+    background-color: white;
     font-weight: bold;
 }
 
@@ -16,8 +17,8 @@ main section:nth-child(2n) h2 {
 }
 
 main section:nth-child(2n) p {
-    background-color: #ca5004;
+    background-color: white;
     padding-bottom: 1rem;
     font-size: 200%;
-    color: white;
+    color: #1B1B1B;
 }

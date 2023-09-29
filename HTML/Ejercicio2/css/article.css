@@ -29,7 +29,11 @@ article ul li {
     color: white;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    box-shadow: 0 0 1rem 0.3rem gray;
+    border: 1em;
+    border-color: transparent;
+    background-clip: padding-box;
+    border-style: solid;
+    box-shadow: 0 0 0 0.5rem #FBB500;
 }
 
 
