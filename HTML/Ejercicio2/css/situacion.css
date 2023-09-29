@@ -1,14 +1,23 @@
 /*Situacion*/
 main section:nth-child(2n) {
-    background-color: aqua;
-    padding-bottom: 10rem;
+    background-color: #FF6000;
+    margin-top: 2rem;
+    margin: 2rem;
+    padding-top: 0rem;
+    font-weight: bold;
 }
 
 main section:nth-child(2n) h2 {
-    padding-bottom: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    background-color: #1B1B1B;
+    color: white;
+    margin-bottom: 0;
 }
 
 main section:nth-child(2n) p {
-    background-color: aqua;
+    background-color: #ca5004;
+    padding-bottom: 1rem;
     font-size: 200%;
+    color: white;
 }

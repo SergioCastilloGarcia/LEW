@@ -5,6 +5,9 @@ main article {
 
 main article h2 {
     margin-bottom: 5rem;
+    border: 2rem;
+    border-color: dodgerblue;
+    border-style: solid;
 }
 
 main article ul {
@@ -22,6 +25,11 @@ main article ul {
 article ul li {
     width: 75%;
     padding-left: 5rem;
+    background-color: dodgerblue;
+    color: white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: 0 0 1rem 0.3rem gray;
 }
 
 
