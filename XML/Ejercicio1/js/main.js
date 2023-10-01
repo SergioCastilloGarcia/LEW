@@ -1,8 +1,10 @@
 class Biblioteca {
   constructor() {
     this.subfolders = [];
-    this.nombresLibros = [];
-    this.RUTA_BOOKS ="../books";
+    this.booksBasicInfo = [];
+    this.RUTA_BOOKS ="../books/";
+    this.CONTENT_XML ='/OEBPS/content.opf';
+    this.RUTA_Images ='/OEBPS/images/';
   }
 
   // Método para agregar nombres de subcarpetas a la lista
@@ -14,8 +16,8 @@ class Biblioteca {
         if (xhr.status === 200) {
           const response = xhr.responseText;
           this.subfolders = this.getSubfoldersNames(response);//Consigo las rutas de cada libro
-          this.nombresLibros=this.getBookNames();//Consigo el nombre de cada libro
-          console.log(this.nombresLibros);
+          this.booksBasicInfo=this.getBooksBasicInfo();//Consigo el nombre de cada libro
+          console.log(this.booksBasicInfo);
          
         } else {
           console.error('Error al obtener nombres de subcarpetas:', xhr.status);
@@ -23,7 +25,7 @@ class Biblioteca {
       }
     };
 
-    xhr.open('GET', "../books/");
+    xhr.open('GET', this.RUTA_BOOKS);
     xhr.send();
   }
   //Metodo para parsear la respuesta de la peticion HTTP y conseguir los nombres de las subcarpetas
@@ -46,45 +48,39 @@ class Biblioteca {
   }
 
   //Metodo para extraer el nombre de los libros
-  async getBookNames() {
+  async getBooksBasicInfo() {
 
     // Extraer los nombres de las subcarpetas
-    const booksNames = [];
-    /*for (let i = 0; i < this.subfolders.length; i++) {
-      const subcarpeta = this.subfolders[i];
-      const nombreLibro = this.getBookName(subcarpeta);
-      booksNames.push(nombreLibro);
-    }*/
+    const booksInfo = [];
     for (let i = 0; i < this.subfolders.length; i++) {
       const subcarpeta = this.subfolders[i];
-      const nombreLibro = await this.obtenerNombreLibroDesdeXHTML(subcarpeta);
-      if (nombreLibro) {
-        booksNames.push(nombreLibro);
+      const bookInfo = await this.getBookBasicInfo(subcarpeta);
+      if (bookInfo) {
+        booksInfo.push(bookInfo);
       }
     }
-    return booksNames;
+    return booksInfo;
 
   }
+
   //metodo para extraer el nombre de un libro dada su ruta
-  getBookName(ruta) {
-    // Suponemos que el nombre del libro es igual al nombre de la carpeta (sin la extensión .epub)
-    return ruta.replace('.epub', '');
-  }
-  async obtenerNombreLibroDesdeXHTML(subcarpeta) {
-    const archivoXHTML = `../books/${subcarpeta}/OEBPS/content.opf`;
+  async getBookBasicInfo(subcarpeta) {
+    const archivoXHTML = this.RUTA_BOOKS+subcarpeta+this.CONTENT_XML;
 
     try {
-      const contenido = await this.leerArchivo(archivoXHTML);
-      const nombreLibro = this.extraerNombreLibroDesdeXHTML(contenido);
-      return nombreLibro;
+      const contenidoXML = await this.readXML(archivoXHTML);
+      const nombreLibro = this.getTitle(contenidoXML);
+      let portadaLibro = this.getCover(contenidoXML);
+      portadaLibro=this.RUTA_BOOKS+subcarpeta+this.RUTA_Images+portadaLibro;//Construimos la ruta de la imagen de portada
+      return [nombreLibro,portadaLibro];
     } catch (error) {
       console.error('Error al leer el archivo XHTML:', error);
       return null;
     }
   }
 
-
-  async leerArchivo(ruta) {
+//Metodo que carga el archivo xml en el cliente
+  async readXML(ruta) {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
 
@@ -102,17 +98,34 @@ class Biblioteca {
       xhr.send();
     });
   }
-  
-  extraerNombreLibroDesdeXHTML(contenido) {
-    // Suponemos que el nombre del libro está en una etiqueta <title>
+  getCover(contenidoXML){
+    let coverName= this.getValue(contenidoXML,'meta[name="cover"]')
+    if (!coverName.toLowerCase().endsWith('.jpg')) {//si no acaba en .jpg, es que es jpeg
+      coverName += '.jpeg';
+    }
+    return coverName;
+  }
+  //Dado un XML onsigue el titulo de un libro
+  getTitle(contenidoXML) {
+    return this.getValue(contenidoXML,'title')
+  }
+  //Consigue uno o más valores del xml
+  getValue(contenidoXML, attribute){
     const parser = new DOMParser();
-    const doc = parser.parseFromString(contenido, 'application/xml');
-    const titleElement = doc.querySelector('title');
+    const doc = parser.parseFromString(contenidoXML, 'application/xml');
+    const valueElement = doc.querySelector(attribute);
 
-    if (titleElement && titleElement.textContent) {
-      return titleElement.textContent.trim();
-    } else {
-      console.error('No se pudo encontrar el nombre del libro en el archivo XHTML.');
+    if (valueElement){
+      if (valueElement.textContent) {//<dc:title>Holocausto Manhattan</dc:title>
+        return valueElement.textContent.trim();
+      } 
+      else if(valueElement.getAttribute('content')){//<meta name="cover" content="cover.jpg"/>
+        return valueElement.getAttribute('content').trim();
+      }
+    
+    }
+    else {
+      console.error('No se pudo encontrar el valor: '+attribute);
       return null;
     }
   }
