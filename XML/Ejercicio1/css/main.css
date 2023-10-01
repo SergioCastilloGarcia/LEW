@@ -29,30 +29,11 @@ h3 {
     font-size: 2rem;
 }
 
-main {
-    grid-column: 1/5;
-    grid-row: 2/4;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    color: #333;
-}
-
-main h2 {
-    text-align: center;
-    grid-column: 1/5;
-}
-
 aside {
     padding: 2em;
-    grid-column: 1;
     background-color: #f0f0f0;
 }
 
-section {
-    padding: 2em;
-    grid-column: 2/5;
-    background-color: #fff;
-}
 
 
 footer {

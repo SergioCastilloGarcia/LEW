@@ -146,8 +146,8 @@ class Biblioteca {
       img.src = book[1];
       img.alt = "Portada de "+book[0];
       // Agregar h2 e img al artículo
-      article.appendChild(h2);
       article.appendChild(img);
+      article.appendChild(h2);
 
       // Agregar el artículo al elemento main
       mainElement.appendChild(article);
