@@ -71,7 +71,8 @@ class Biblioteca {
       const nombreLibro = this.getTitle(contenidoXML);
       let portadaLibro = this.getCover(contenidoXML);
       portadaLibro=this.RUTA_BOOKS+subcarpeta+this.RUTA_Images+portadaLibro;//Construimos la ruta de la imagen de portada
-      return [nombreLibro,portadaLibro];
+      const portadaValidada=encodeURIComponent(portadaLibro);//Para que pase por el validador html
+      return [nombreLibro,portadaValidada];
     } catch (error) {
       console.error('Error al leer el archivo XHTML:', error);
       return null;
@@ -103,7 +104,7 @@ class Biblioteca {
     if (!coverName.toLowerCase().endsWith('.jpg')) {//si no acaba en .jpg, es que es jpeg
       coverName += '.jpeg';
     }
-    return encodeURIComponent(coverName);//Para que valide
+    return coverName;//Para que valide
   }
   //Dado un XML consigue el titulo de un libro
   getTitle(contenidoXML) {
