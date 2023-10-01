@@ -78,6 +78,12 @@ class Biblioteca {
       return null;
     }
   }
+  
+  getBook(){
+    const mainElement = document.querySelector('main');
+    mainElement.innerHTML = '';  // Borra todo el contenido dentro de <main>
+  }
+
 
 //Metodo que carga el archivo xml en el cliente
   async readXML(ruta) {
@@ -138,6 +144,7 @@ class Biblioteca {
       const article = document.createElement('article');
       const h2 = document.createElement('h2');
       const img = document.createElement('img');
+      const boton = document.createElement('button');
 
       // Establecer el nombre del libro como contenido de h2
       h2.textContent = book[0];
@@ -145,9 +152,15 @@ class Biblioteca {
       // Establecer la ruta de la imagen como fuente de la etiqueta img
       img.src = book[1];
       img.alt = "Portada de "+book[0];
+
+      //Configura el boton de ver mas
+      boton.textContent = 'Ver más';
+      boton.onclick = this.getBook;
+
       // Agregar h2 e img al artículo
       article.appendChild(img);
       article.appendChild(h2);
+      article.appendChild(boton);
 
       // Agregar el artículo al elemento main
       mainElement.appendChild(article);

@@ -9,7 +9,9 @@ main {
 }
 main article{
     max-width: 15rem;
+    display: grid;
 }
+
 main article h2 {
     text-align: center;
     font-size: 2rem;
@@ -22,5 +24,4 @@ main article {
 main article img{
     height: auto;
     width: 100%; /* La imagen ocupa todo el ancho de la sección */
-    align-content: center;
 }

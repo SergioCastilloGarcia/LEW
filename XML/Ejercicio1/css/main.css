@@ -19,6 +19,7 @@ header {
 
 h1 {
     font-size: 3rem;
+    cursor: pointer;
 }
 
 h2 {
@@ -48,4 +49,24 @@ footer {
 
 p {
     font-size: 1.2rem;
+}
+
+button {
+
+    padding: 1em 2em;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    border: 0.5rem solid #007BFF;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+    /*Hereda color de button*/
+    border: 0.5rem solid #0056b3;
 }
