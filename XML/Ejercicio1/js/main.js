@@ -1,54 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const fileInput = document.querySelector("input[type='file']");
-    const loadButton = document.querySelector("button");
-    const viewer = document.querySelector("section");
-    let book;
-  
-    const unzip = (file) => {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-      
-          reader.onload = () => {
-            const arrayBuffer = reader.result;
-            const zip = new window.JSZip();
-      
-            zip.loadAsync(arrayBuffer).then((unzipped) => {
-              resolve(unzipped);
-            }).catch((error) => {
-              reject(error);
-            });
-          };
-      
-          reader.readAsArrayBuffer(file);
-        });
-      };
+class Biblioteca {
+  constructor() {
+    this.subfolders = [];
+    this.RUTA_BOOKS ="../books";
+  }
 
-      const parseEPUB = (unzipped) => {
-        // Accede a los archivos dentro del ePub
-        const content = unzipped.files;
-      
-        // Ejemplo: Obtener el contenido del archivo de metadatos
-        content['META-INF/container.xml'].async('string').then((metadata) => {
-          // Aquí deberías escribir la lógica para extraer el título y otra información relevante
-          console.log("Metadatos:", metadata);
-        }).catch((error) => {
-          console.error("Error al acceder a los metadatos:", error);
-        });
-      };
+  // Método para agregar nombres de subcarpetas a la lista
+  getRutasBooks() {
+    const xhr = new XMLHttpRequest();
 
-      const loadEPUB = () => {
-        const file = fileInput.files[0];
-        if (file) {
-          unzip(file)
-            .then((unzipped) => {
-              parseEPUB(unzipped);
-            })
-            .catch((error) => {
-              console.error("Error al descomprimir el archivo ePub:", error);
-            });
+    xhr.onreadystatechange = () => {//TODO sacar de aqui
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = xhr.responseText;
+          this.subfolders = this.extraerNombresSubcarpetas(response);
+          console.log('Nombres de subcarpetas:', this.subfolders);
+        } else {
+          console.error('Error al obtener nombres de subcarpetas:', xhr.status);
         }
-      };
-      
+      }
+    };
+
+    xhr.open('GET', "../books/");
+    xhr.send();
+  }
+  //Metodo para parsear la respuesta de la peticion HTTP y conseguir los nombres de las subcarpetas
+  extraerNombresSubcarpetas(response) {
+    // Analizar la respuesta como HTML
+    const parser = new DOMParser();
+    const htmlDoc = parser.parseFromString(response, 'text/html');
     
-      loadButton.addEventListener("click", loadEPUB);
-    });
+    // Obtener los elementos que representan subcarpetas (por ejemplo, elementos <a>)
+    const subfolderElements = htmlDoc.querySelectorAll('a');  // Ajusta el selector según la estructura de tu HTML
+    
+    // Extraer los nombres de las subcarpetas
+    const subfolderNames = [];
+
+    for (let i = 5; i < subfolderElements.length; i++) {//Para que no coja las carpetas hermanas
+      subfolderNames.push(subfolderElements[i].textContent.trim().replace(/(\d{1,2}\/\d{1,2}\/\d{4}\s\d{1,2}:\d{2}:\d{2})$/, '').trim());//Quito la fecha
+    }
+
+    return subfolderNames;
+  }
+}
+
+// Crear una instancia de Biblioteca
+const biblioteca = new Biblioteca();
+biblioteca.getRutasBooks();
+// Mostrar los nombres de subcarpetas en la consola
+console.log('Nombres de subcarpetas:', biblioteca.subfolders);
