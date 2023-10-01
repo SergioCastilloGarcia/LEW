@@ -1,24 +1,23 @@
 class Biblioteca {
   constructor() {
-    this.subfolders = [];
-    this.booksBasicInfo = [];
     this.RUTA_BOOKS ="../books/";
     this.CONTENT_XML ='/OEBPS/content.opf';
     this.RUTA_Images ='/OEBPS/images/';
   }
 
   // Método para agregar nombres de subcarpetas a la lista
-  getBooks() {
+  async getBooks() {
     const xhr = new XMLHttpRequest();
-
+    let subfolders = [];
+    let booksBasicInfo = [];
     xhr.onreadystatechange = () => {//TODO sacar de aqui
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const response = xhr.responseText;
-          this.subfolders = this.getSubfoldersNames(response);//Consigo las rutas de cada libro
-          this.booksBasicInfo=this.getBooksBasicInfo();//Consigo el nombre de cada libro
-          console.log(this.booksBasicInfo);
-         
+          subfolders = this.getSubfoldersNames(response);//Consigo las rutas de cada libro
+          booksBasicInfo=this.getBooksBasicInfo(subfolders);//Consigo el nombre de cada libro
+          console.log(booksBasicInfo);
+          this.addToMain(booksBasicInfo);
         } else {
           console.error('Error al obtener nombres de subcarpetas:', xhr.status);
         }
@@ -48,12 +47,12 @@ class Biblioteca {
   }
 
   //Metodo para extraer el nombre de los libros
-  async getBooksBasicInfo() {
+  async getBooksBasicInfo(subfolders) {
 
     // Extraer los nombres de las subcarpetas
     const booksInfo = [];
-    for (let i = 0; i < this.subfolders.length; i++) {
-      const subcarpeta = this.subfolders[i];
+    for (let i = 0; i < subfolders.length; i++) {
+      const subcarpeta = subfolders[i];
       const bookInfo = await this.getBookBasicInfo(subcarpeta);
       if (bookInfo) {
         booksInfo.push(bookInfo);
@@ -98,14 +97,15 @@ class Biblioteca {
       xhr.send();
     });
   }
+  //Dado un XML consigue la portada de un libro
   getCover(contenidoXML){
     let coverName= this.getValue(contenidoXML,'meta[name="cover"]')
     if (!coverName.toLowerCase().endsWith('.jpg')) {//si no acaba en .jpg, es que es jpeg
       coverName += '.jpeg';
     }
-    return coverName;
+    return encodeURIComponent(coverName);//Para que valide
   }
-  //Dado un XML onsigue el titulo de un libro
+  //Dado un XML consigue el titulo de un libro
   getTitle(contenidoXML) {
     return this.getValue(contenidoXML,'title')
   }
@@ -127,6 +127,29 @@ class Biblioteca {
     else {
       console.error('No se pudo encontrar el valor: '+attribute);
       return null;
+    }
+  }
+  async addToMain(booksPromise) {
+    const books = await booksPromise; //Esperamos a la promesa
+    const mainElement = document.querySelector('main');
+
+    for (const book of books) {
+      const article = document.createElement('article');
+      const h2 = document.createElement('h2');
+      const img = document.createElement('img');
+
+      // Establecer el nombre del libro como contenido de h2
+      h2.textContent = book[0];
+
+      // Establecer la ruta de la imagen como fuente de la etiqueta img
+      img.src = book[1];
+      img.alt = "Portada de "+book[0];
+      // Agregar h2 e img al artículo
+      article.appendChild(h2);
+      article.appendChild(img);
+
+      // Agregar el artículo al elemento main
+      mainElement.appendChild(article);
     }
   }
 }
