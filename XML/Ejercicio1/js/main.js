@@ -322,19 +322,22 @@ class Biblioteca {
       descripcion.innerHTML=bookExtraInfo.description;
       article.appendChild(descripcion);
     }
+    section.appendChild(article);
     if(chapters){
+      const h4 = document.createElement('h4');
+      h4.textContent="Capítulos: ";
+      section.appendChild(h4);
       for (let i = 0; i < chapters.length; i++) {
         const a = document.createElement('a');
         const chapterTitle=chapters[i].text;
         a.textContent=chapterTitle;
         const ruta=bookBasicInfo.ruta.substring(9)+this.RUTA_OEBPS+chapters[i].contentSrc
-        a.href=ruta;
+        a.href=encodeURIComponent(ruta);
         a.target="_blank"; //Lo abre en una pestaña nueva
         nav.appendChild(a);
       }
-      article.appendChild(nav);
+      section.appendChild(nav);
     }
-    section.appendChild(article);
     mainElement.appendChild(section);
 
     
