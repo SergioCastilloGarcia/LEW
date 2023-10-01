@@ -3,7 +3,9 @@ class Biblioteca {
   constructor() {
     this.RUTA_BOOKS ="../books/";
     this.CONTENT_XML ='/OEBPS/content.opf';
-    this.RUTA_Images ='/OEBPS/images/';
+    this.TOC_XML ='/OEBPS/toc.ncx';
+    this.RUTA_IMAGES ='/OEBPS/images/';
+    this.RUTA_OEBPS ='/OEBPS/';
   }
 
   // Método para agregar nombres de subcarpetas a la lista
@@ -77,7 +79,7 @@ class Biblioteca {
 
       const nombreLibro = this.getTitle(contenidoXML);
       let portadaLibro = this.getCover(contenidoXML);
-      portadaLibro=this.RUTA_BOOKS+subcarpeta+this.RUTA_Images+portadaLibro;//Construimos la ruta de la imagen de portada
+      portadaLibro=this.RUTA_BOOKS+subcarpeta+this.RUTA_IMAGES+portadaLibro;//Construimos la ruta de la imagen de portada
       const portadaValidada=encodeURIComponent(portadaLibro);//Para que pase por el validador html
 
       return {
@@ -86,7 +88,7 @@ class Biblioteca {
         cover: portadaValidada
       };
     } catch (error) {
-      console.error('Error al leer el archivo XHTML:', error);
+      console.error('Error al leer el archivo XML:', error);
       return null;
     }
   }
@@ -111,7 +113,22 @@ class Biblioteca {
         subject: subject,
       };
     } catch (error) {
-      console.error('Error al leer el archivo XHTML:', error);
+      console.error('Error al leer el archivo XML:', error);
+      return null;
+    }
+  }
+  //metodo para extraer datos extra de un libro dada su ruta
+  async getBookChapters(subcarpeta) {
+    const archivoXHTML = this.RUTA_BOOKS+subcarpeta+this.TOC_XML;
+
+    try {
+      const contenidoXML = await this.readXML(archivoXHTML);
+
+      const chapters = this.getChapters(contenidoXML);
+
+      return chapters;
+    } catch (error) {
+      console.error('Error al leer el archivo XML:', error);
       return null;
     }
   }
@@ -121,11 +138,9 @@ class Biblioteca {
     mainElement.innerHTML = '';  // Borra todo el contenido dentro de <main>
     const bookBasicInfo = await this.getBookBasicInfo(folder);
     const bookExtraInfo = await this.getBookExtraInfo(folder);
-    console.log(bookBasicInfo);
-    console.log(bookExtraInfo);
-    this.addBookToIndex(bookBasicInfo,bookExtraInfo);
+    const chapters = await this.getBookChapters(folder);
+    this.addBookToIndex(bookBasicInfo,bookExtraInfo, chapters);
   }
-
 
 //Metodo que carga el archivo xml en el cliente
   async readXML(ruta) {
@@ -178,6 +193,26 @@ class Biblioteca {
    getSubject(contenidoXML) {
     return this.getValue(contenidoXML,'subject')
   }
+  //Dado un xml consigue los ids de los capitulos
+  getChapters(contenidoXML){
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(contenidoXML, 'application/xml');
+    const navPoints = doc.querySelectorAll('navPoint');
+    const chapters = [];
+    if (navPoints && navPoints.length>0){
+      for (let i = 0; i < navPoints.length; i++) {
+        const navPoint = navPoints[i];
+        const textValue = navPoint.querySelector('text').textContent;
+        const contentSrcValue = navPoint.querySelector('content').getAttribute('src');
+        
+        chapters.push({ text: textValue, contentSrc: contentSrcValue });
+      }
+      return chapters
+    }else {
+      console.error('No se pudo encontrar los capitulos');
+      return null;
+    }
+  }
   //Consigue uno o más valores del xml
   getValue(contenidoXML, attribute){
     const parser = new DOMParser();
@@ -228,7 +263,7 @@ class Biblioteca {
       mainElement.appendChild(article);
     }
   }
-  async addBookToIndex(bookBasicInfo, bookExtraInfo) {
+  async addBookToIndex(bookBasicInfo, bookExtraInfo,chapters) {
     const mainElement = document.querySelector('main');
 
     const h2 = document.createElement('h2');
@@ -240,6 +275,7 @@ class Biblioteca {
     const date = document.createElement('p');
     const publisher = document.createElement('p');
     const subject = document.createElement('p');
+    const nav = document.createElement('nav');
 
     // Establecer el nombre del libro como contenido de h2
     h2.textContent = bookBasicInfo.title;
@@ -285,6 +321,18 @@ class Biblioteca {
       article.appendChild(descripcionTitle);
       descripcion.innerHTML=bookExtraInfo.description;
       article.appendChild(descripcion);
+    }
+    if(chapters){
+      for (let i = 0; i < chapters.length; i++) {
+        const a = document.createElement('a');
+        const chapterTitle=chapters[i].text;
+        a.textContent=chapterTitle;
+        const ruta=bookBasicInfo.ruta.substring(9)+this.RUTA_OEBPS+chapters[i].contentSrc
+        a.href=ruta;
+        a.target="_blank"; //Lo abre en una pestaña nueva
+        nav.appendChild(a);
+      }
+      article.appendChild(nav);
     }
     section.appendChild(article);
     mainElement.appendChild(section);
