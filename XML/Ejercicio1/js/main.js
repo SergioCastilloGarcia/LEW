@@ -1,4 +1,5 @@
 class Biblioteca {
+  
   constructor() {
     this.RUTA_BOOKS ="../books/";
     this.CONTENT_XML ='/OEBPS/content.opf';
@@ -7,6 +8,12 @@ class Biblioteca {
 
   // Método para agregar nombres de subcarpetas a la lista
   async getBooks() {
+    //Si ya hay contenido lo borra
+    try{
+      const mainElement = document.querySelector('main');
+      mainElement.innerHTML = '';  // Borra todo el contenido dentro de <main>
+      
+    }catch(e){}
     const xhr = new XMLHttpRequest();
     let subfolders = [];
     let booksBasicInfo = [];
@@ -16,8 +23,7 @@ class Biblioteca {
           const response = xhr.responseText;
           subfolders = this.getSubfoldersNames(response);//Consigo las rutas de cada libro
           booksBasicInfo=this.getBooksBasicInfo(subfolders);//Consigo el nombre de cada libro
-          console.log(booksBasicInfo);
-          this.addToMain(booksBasicInfo);
+          this.addBooksToIndex(booksBasicInfo);
         } else {
           console.error('Error al obtener nombres de subcarpetas:', xhr.status);
         }
@@ -68,20 +74,56 @@ class Biblioteca {
 
     try {
       const contenidoXML = await this.readXML(archivoXHTML);
+
       const nombreLibro = this.getTitle(contenidoXML);
       let portadaLibro = this.getCover(contenidoXML);
       portadaLibro=this.RUTA_BOOKS+subcarpeta+this.RUTA_Images+portadaLibro;//Construimos la ruta de la imagen de portada
       const portadaValidada=encodeURIComponent(portadaLibro);//Para que pase por el validador html
-      return [nombreLibro,portadaValidada];
+
+      return {
+        ruta: this.RUTA_BOOKS + subcarpeta,
+        title: nombreLibro,
+        cover: portadaValidada
+      };
     } catch (error) {
       console.error('Error al leer el archivo XHTML:', error);
       return null;
     }
   }
-  
-  getBook(){
+   //metodo para extraer datos extra de un libro dada su ruta
+   async getBookExtraInfo(subcarpeta) {
+    const archivoXHTML = this.RUTA_BOOKS+subcarpeta+this.CONTENT_XML;
+
+    try {
+      const contenidoXML = await this.readXML(archivoXHTML);
+
+      const author = this.getAuthor(contenidoXML);
+      const description = this.getDescription(contenidoXML);
+      const date = this.getDate(contenidoXML);
+      const publisher = this.getPublisher(contenidoXML);
+      const subject = this.getSubject(contenidoXML);
+
+      return {
+        author: author,
+        description: description,
+        date: date,
+        publisher: publisher,
+        subject: subject,
+      };
+    } catch (error) {
+      console.error('Error al leer el archivo XHTML:', error);
+      return null;
+    }
+  }
+  //Consigue datos de un libro concreto
+  async getBook(folder){
     const mainElement = document.querySelector('main');
     mainElement.innerHTML = '';  // Borra todo el contenido dentro de <main>
+    const bookBasicInfo = await this.getBookBasicInfo(folder);
+    const bookExtraInfo = await this.getBookExtraInfo(folder);
+    console.log(bookBasicInfo);
+    console.log(bookExtraInfo);
+    this.addBookToIndex(bookBasicInfo,bookExtraInfo);
   }
 
 
@@ -116,6 +158,26 @@ class Biblioteca {
   getTitle(contenidoXML) {
     return this.getValue(contenidoXML,'title')
   }
+  //Dado un XML consigue el autor de un libro
+  getAuthor(contenidoXML) {
+    return this.getValue(contenidoXML,'creator')
+  }
+  //Dado un XML consigue la descripcion de un libro
+  getDescription(contenidoXML) {
+    return this.getValue(contenidoXML,'description')
+  }
+  //Dado un XML consigue la fecha de un libro
+  getDate(contenidoXML) {
+    return this.getValue(contenidoXML,'date')
+  }
+  //Dado un XML consigue la editorial de un libro
+  getPublisher(contenidoXML) {
+    return this.getValue(contenidoXML,'publisher')
+  }
+   //Dado un XML consigue las categorias de un libro
+   getSubject(contenidoXML) {
+    return this.getValue(contenidoXML,'subject')
+  }
   //Consigue uno o más valores del xml
   getValue(contenidoXML, attribute){
     const parser = new DOMParser();
@@ -136,7 +198,7 @@ class Biblioteca {
       return null;
     }
   }
-  async addToMain(booksPromise) {
+  async addBooksToIndex(booksPromise) {
     const books = await booksPromise; //Esperamos a la promesa
     const mainElement = document.querySelector('main');
 
@@ -147,15 +209,15 @@ class Biblioteca {
       const boton = document.createElement('button');
 
       // Establecer el nombre del libro como contenido de h2
-      h2.textContent = book[0];
+      h2.textContent = book.title;
 
       // Establecer la ruta de la imagen como fuente de la etiqueta img
-      img.src = book[1];
-      img.alt = "Portada de "+book[0];
+      img.src = book.cover;
+      img.alt = "Portada de "+book.title;
 
       //Configura el boton de ver mas
       boton.textContent = 'Ver más';
-      boton.onclick = this.getBook;
+      boton.onclick = () => this.getBook(book.ruta);
 
       // Agregar h2 e img al artículo
       article.appendChild(img);
@@ -165,6 +227,69 @@ class Biblioteca {
       // Agregar el artículo al elemento main
       mainElement.appendChild(article);
     }
+  }
+  async addBookToIndex(bookBasicInfo, bookExtraInfo) {
+    const mainElement = document.querySelector('main');
+
+    const h2 = document.createElement('h2');
+    const img = document.createElement('img');
+    const section = document.createElement('section');
+    const article = document.createElement('article');
+    const descripcion = document.createElement('p');
+    const author = document.createElement('p');
+    const date = document.createElement('p');
+    const publisher = document.createElement('p');
+    const subject = document.createElement('p');
+
+    // Establecer el nombre del libro como contenido de h2
+    h2.textContent = bookBasicInfo.title;
+
+    // Establecer la ruta de la imagen como fuente de la etiqueta img
+    img.src = bookBasicInfo.cover;
+    img.alt = "Portada de "+bookBasicInfo.title;
+
+    // Agregar h2 e img al artículo
+    section.appendChild(h2);
+    section.appendChild(img);
+
+    //Agrega los campos extra
+    if(author){
+      const authorTitle = document.createElement('h3');
+      authorTitle.textContent="Autor: ";
+      article.appendChild(authorTitle);
+
+      author.innerHTML=bookExtraInfo.author;
+      article.appendChild(author);
+    }
+    if(date){
+      const dateTitle = document.createElement('h3');
+      dateTitle.textContent="Fecha: ";
+      article.appendChild(dateTitle);
+      date.innerHTML=bookExtraInfo.date;
+      article.appendChild(date);
+    }if(publisher){
+      const publisherTitle = document.createElement('h3');
+      publisherTitle.textContent="Editorial: ";
+      article.appendChild(publisherTitle);
+      publisher.innerHTML=bookExtraInfo.publisher;
+      article.appendChild(publisher);
+    }if(subject){
+      const subjectTitle = document.createElement('h3');
+      subjectTitle.textContent="Categoría: ";
+      article.appendChild(subjectTitle);
+      subject.innerHTML=bookExtraInfo.subject;
+      article.appendChild(subject);
+    }if(descripcion){
+      const descripcionTitle = document.createElement('h3');
+      descripcionTitle.textContent="Sinopsis: ";
+      article.appendChild(descripcionTitle);
+      descripcion.innerHTML=bookExtraInfo.description;
+      article.appendChild(descripcion);
+    }
+    section.appendChild(article);
+    mainElement.appendChild(section);
+
+    
   }
 }
 
