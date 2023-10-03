@@ -6,12 +6,35 @@
     >
   <nombre>Real Oviedo</nombre>
   <pais>España</pais>
-  <ciudad>Vetusta</ciudad>
+  <ciudad>Oviedo</ciudad>
   <fundacion>1926</fundacion>
   <estadio>
     <nombreEstadio>tartiere </nombreEstadio>
-    <capacidad>33500</capacidad>
-    <localizacion>Buenavista</localizacion>
+    <capacidad>30500</capacidad>
+    <localizacion>La Ería</localizacion>
+    <fotoEstadio>https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg</fotoEstadio>
   </estadio>
   <escudo>https://i.pinimg.com/originals/69/8f/11/698f1162fc45267c5760b5b17f5cccb2.jpg</escudo>
+  <jugadores>
+    <jugador>
+      <nombre>Luis García</nombre>
+      <posicion>Delantero</posicion>
+      <edad>28</edad>
+    </jugador>
+    <jugador>
+      <nombre>María Sánchez</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>25</edad>
+    </jugador>
+  </jugadores>
+  <redesSociales>
+    <redSocial>
+      <nombre>Twitter</nombre>
+      <enlace>https://twitter.com/realoviedo</enlace>
+    </redSocial>
+    <redSocial>
+      <nombre>Facebook</nombre>
+      <enlace>https://facebook.com/realoviedo</enlace>
+    </redSocial>
+  </redesSociales>
 </equipo>
