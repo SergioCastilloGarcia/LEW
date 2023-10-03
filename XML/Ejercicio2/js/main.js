@@ -21,13 +21,14 @@ class ConertidorXML {
       alert('Selecciona un archivo XML antes de subirlo.');
     }
   }
+
   async parseXML() {
     if (this.xmlContent) {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(this.xmlContent, 'application/xml');
 
       await this.makeTeam()
-      this.downloadPlantilla()();
+      this.downloadPlantilla();
     } else {
       alert('Primero selecciona un archivo XML.');
     }
@@ -77,7 +78,7 @@ class ConertidorXML {
     xhr.open('GET', this.plantillaHTML, true);
     xhr.responseType = 'blob';
 
-    xhr.onload = () => this.htmlConfigurator(xhr);
+    xhr.onload = () => this.htmlOnLoad(xhr);
 
     xhr.send();
   }
@@ -87,38 +88,57 @@ class ConertidorXML {
     xhr.open('GET', this.plantillaCSS, true);
     xhr.responseType = 'blob';
 
-    xhr.onload = () => this.cssConfigurator(xhr);
+    xhr.onload = () => this.cssOnLoad(xhr);
 
     xhr.send();
   }
-  htmlConfigurator(xhr) {
+  htmlOnLoad(xhr) {
     if (xhr.status === 200) {
-      const blob = new Blob([xhr.response], { type: 'text/html' });
-
-      const a = document.createElement('a');
-      a.href = window.URL.createObjectURL(blob);
-      a.download = this.team.nombre;
-
-      document.body.appendChild(a);
-      a.click();
-
-      document.body.removeChild(a);
+      const reader = new FileReader();
+      reader.onload = () => this.htmlConfigurator(this.modifyHtml(reader.result));
+      reader.readAsText(xhr.response, 'utf-8');
     }
-  };
-  cssConfigurator(xhr) {
+  }
+  cssOnLoad(xhr) {
     if (xhr.status === 200) {
-      const blob = new Blob([xhr.response], { type: 'text/css' });
-
-      const a = document.createElement('a');
-      a.href = window.URL.createObjectURL(blob);
-      a.download = this.team.nombre;
-
-      document.body.appendChild(a);
-      a.click();
-
-      document.body.removeChild(a);
+      const reader = new FileReader();
+      reader.onload = () => this.cssConfigurator(this.modifyCss(reader.result));
+      reader.readAsText(xhr.response, 'utf-8');
     }
-  };
+  }
+  htmlConfigurator(htmlContent) {
+    const blob = new Blob([htmlContent], { type: 'text/html' });
+
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = this.team.nombre;
+
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+
+  }
+  cssConfigurator(cssContent) {
+    const blob = new Blob([cssContent], { type: 'text/css' });
+
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = this.team.nombre;
+
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+
+  }
+  modifyHtml(htmlContent) {
+    const modifiedHtml = htmlContent.replaceAll('{nombre}', this.team.nombre);
+    return modifiedHtml;
+  }
+  modifyCss(cssContent) {
+    return cssContent;
+  }
 }
 
 // Crear una instancia de ConertidorXML
