@@ -33,8 +33,9 @@ class ConertidorXML {
   makeHTML() {
     const nombre = this.getNombre();
     const nombreEstadio = this.getNombreEstadio();
-    console.log(nombre);
-    console.log(nombreEstadio);
+
+
+    this.downloadHtmlCopy();
   }
   //Dado un XML consigue el nombre de un equipo
   getNombre() {
@@ -58,6 +59,34 @@ class ConertidorXML {
       console.error('No se pudo encontrar el valor: ' + attribute);
       return null;
     }
+  }
+  downloadHtmlCopy() {
+    const url = '../html/plantilla.html';
+
+    // Realizar una solicitud para obtener el contenido del archivo
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'blob';
+
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        const blob = new Blob([xhr.response], { type: 'text/xml' });
+
+        // Crear un enlace para descargar el archivo
+        const a = document.createElement('a');
+        a.href = window.URL.createObjectURL(blob);
+        a.download = 'plantilla.html';
+
+        // Agregar el enlace al documento y simular un clic
+        document.body.appendChild(a);
+        a.click();
+
+        // Limpiar y remover el enlace del documento
+        document.body.removeChild(a);
+      }
+    };
+
+    xhr.send();
   }
 
 }
