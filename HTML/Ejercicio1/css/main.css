@@ -55,9 +55,13 @@ section img {
     margin: 0 auto;
 }
 
-aside {
+main article:first {
     padding: 2em;
     grid-column: 1;
+}
+
+main article:first h3 {
+    text-align: center;
 }
 
 article {
@@ -94,9 +98,6 @@ section h3 {
     /*Hereda background-color de section*/
 }
 
-aside h3 {
-    text-align: center;
-}
 
 footer {
     background-color: #333;
