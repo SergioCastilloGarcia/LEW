@@ -2,6 +2,9 @@ class ConertidorXML {
 
   constructor() {
     this.xmlContent;
+    this.plantillaHTML = '../html/plantilla.html';
+    this.plantillaCSS = '../css/plantilla.css';
+    this.team;
   }
 
   handleFile(event) {
@@ -18,24 +21,27 @@ class ConertidorXML {
       alert('Selecciona un archivo XML antes de subirlo.');
     }
   }
-
-  parseXML() {
+  async parseXML() {
     if (this.xmlContent) {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(this.xmlContent, 'application/xml');
-      console.log('Contenido del XML:', xmlDoc);
-      this.makeHTML(xmlDoc);
+
+      await this.makeTeam()
+      this.downloadPlantilla()();
     } else {
       alert('Primero selecciona un archivo XML.');
     }
   }
 
-  makeHTML() {
+
+  makeTeam() {
     const nombre = this.getNombre();
     const nombreEstadio = this.getNombreEstadio();
 
-
-    this.downloadHtmlCopy();
+    this.team = {
+      nombre: nombre,
+      nombreEstadio: nombreEstadio
+    };
   }
   //Dado un XML consigue el nombre de un equipo
   getNombre() {
@@ -60,35 +66,59 @@ class ConertidorXML {
       return null;
     }
   }
-  downloadHtmlCopy() {
-    const url = '../html/plantilla.html';
 
-    // Realizar una solicitud para obtener el contenido del archivo
+
+  downloadPlantilla() {
+    this.downloadHtml();
+    this.downloadCss();
+  }
+  downloadHtml() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
+    xhr.open('GET', this.plantillaHTML, true);
     xhr.responseType = 'blob';
 
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        const blob = new Blob([xhr.response], { type: 'text/xml' });
-
-        // Crear un enlace para descargar el archivo
-        const a = document.createElement('a');
-        a.href = window.URL.createObjectURL(blob);
-        a.download = 'plantilla.html';
-
-        // Agregar el enlace al documento y simular un clic
-        document.body.appendChild(a);
-        a.click();
-
-        // Limpiar y remover el enlace del documento
-        document.body.removeChild(a);
-      }
-    };
+    xhr.onload = () => this.htmlConfigurator(xhr);
 
     xhr.send();
   }
 
+  downloadCss() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', this.plantillaCSS, true);
+    xhr.responseType = 'blob';
+
+    xhr.onload = () => this.cssConfigurator(xhr);
+
+    xhr.send();
+  }
+  htmlConfigurator(xhr) {
+    if (xhr.status === 200) {
+      const blob = new Blob([xhr.response], { type: 'text/html' });
+
+      const a = document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = this.team.nombre;
+
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+    }
+  };
+  cssConfigurator(xhr) {
+    if (xhr.status === 200) {
+      const blob = new Blob([xhr.response], { type: 'text/css' });
+
+      const a = document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = this.team.nombre;
+
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+    }
+  };
 }
 
 // Crear una instancia de ConertidorXML
