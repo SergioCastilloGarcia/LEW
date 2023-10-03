@@ -9,7 +9,7 @@
   <ciudad>Vetusta</ciudad>
   <fundacion>1926</fundacion>
   <estadio>
-    <nombre>tartiere </nombre>
+    <nombreEstadio>tartiere </nombreEstadio>
     <capacidad>33500</capacidad>
     <localizacion>Buenavista</localizacion>
   </estadio>

@@ -23,35 +23,36 @@ class ConertidorXML {
     if (this.xmlContent) {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(this.xmlContent, 'application/xml');
-
-      // Aquí puedes trabajar con el documento XML (xmlDoc)
-      // Por ejemplo, puedes acceder a los elementos usando xmlDoc.querySelector('nombre_del_elemento')
-
       console.log('Contenido del XML:', xmlDoc);
+      this.makeHTML(xmlDoc);
     } else {
       alert('Primero selecciona un archivo XML.');
     }
   }
 
-  //Dado un XML consigue la editorial de un libro
-  getPublisher(contenidoXML) {
-    return this.getValue(contenidoXML, 'publisher')
+  makeHTML() {
+    const nombre = this.getNombre();
+    const nombreEstadio = this.getNombreEstadio();
+    console.log(nombre);
+    console.log(nombreEstadio);
   }
-
+  //Dado un XML consigue el nombre de un equipo
+  getNombre() {
+    return this.getValue('nombre')
+  }
+  //Dado un XML consigue el nombre de un equipo
+  getNombreEstadio() {
+    return this.getValue('nombreEstadio')
+  }
   //Consigue uno o más valores del xml
-  getValue(contenidoXML, attribute) {
+  getValue(attribute) {
     const parser = new DOMParser();
-    const doc = parser.parseFromString(contenidoXML, 'application/xml');
-    const valueElement = doc.querySelector(attribute);
+    const xmlDoc = parser.parseFromString(this.xmlContent, 'text/xml');
+    // Buscar el valor del atributo en la etiqueta 'equipo'
+    const value = xmlDoc.getElementsByTagName(attribute)[0].textContent;
 
-    if (valueElement) {
-      if (valueElement.textContent) {//<dc:title>Holocausto Manhattan</dc:title>
-        return valueElement.textContent.trim();
-      }
-      else if (valueElement.getAttribute('content')) {//<meta name="cover" content="cover.jpg"/>
-        return valueElement.getAttribute('content').trim();
-      }
-
+    if (value) {
+      return value;
     }
     else {
       console.error('No se pudo encontrar el valor: ' + attribute);

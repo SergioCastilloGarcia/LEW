@@ -14,7 +14,7 @@
         <xs:element name="estadio">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="nombre" type="xs:string"/>
+              <xs:element name="nombreEstadio" type="xs:string"/>
               <xs:element name="capacidad" type="xs:positiveInteger"/>
               <xs:element name="localizacion" type="xs:string"/>
             </xs:sequence>
