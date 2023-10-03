@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergio Castillo - Ejercicio XML 1</title>
+    <title>Sergio Castillo - Ejercicio XML 2</title>
     <meta name="description"
         content="Página web realizada para el Máster en Ingeniería Web en la Universidad de Oviedo">
     <meta name="keywords" content="MIW, Uniovi, EII, W3C">
@@ -17,10 +17,11 @@
 
 <body>
     <header>
-        <h1 onclick="biblioteca.getBooks()">Biblioteca ePub</h1>
+        <h1>Sergio Castillo - Ejercicio XML 2</h1>
     </header>
     <main>
-
+        <input type="file" accept=".xml" onchange="conertidorXML.handleFile(event)" />
+        <button onclick="conertidorXML.parseXML()">Subir Archivo XML</button>
     </main>
 
     <footer>

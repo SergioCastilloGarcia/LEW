@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uniovi.es/uo276436/lew"
+    xmlns="http://www.uniovi.es/uo276436/lew"
+    elementFormDefault="qualified">
+
+  <xs:element name="equipo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="pais" type="xs:string"/>
+        <xs:element name="ciudad" type="xs:string"/>
+        <xs:element name="fundacion" type="xs:gYear"/>
+        <xs:element name="estadio">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="xs:string"/>
+              <xs:element name="capacidad" type="xs:positiveInteger"/>
+              <xs:element name="localizacion" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="escudo" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

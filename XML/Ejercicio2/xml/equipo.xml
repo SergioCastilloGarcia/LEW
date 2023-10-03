@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<equipo 
+    xmlns="http://www.uniovi.es/uo276436/lew"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uniovi.es/uo276436/lew equipo.xsd"
+    >
+  <nombre>Real Oviedo</nombre>
+  <pais>España</pais>
+  <ciudad>Vetusta</ciudad>
+  <fundacion>1926</fundacion>
+  <estadio>
+    <nombre>tartiere </nombre>
+    <capacidad>33500</capacidad>
+    <localizacion>Buenavista</localizacion>
+  </estadio>
+  <escudo>https://i.pinimg.com/originals/69/8f/11/698f1162fc45267c5760b5b17f5cccb2.jpg</escudo>
+</equipo>
