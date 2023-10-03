@@ -133,7 +133,8 @@ class ConertidorXML {
 
   }
   modifyHtml(htmlContent) {
-    const modifiedHtml = htmlContent.replaceAll('{nombre}', this.team.nombre);
+    let modifiedHtml = htmlContent.replaceAll('{nombre}', this.team.nombre);
+    modifiedHtml = modifiedHtml.replaceAll('{nombrecss}', encodeURIComponent(this.team.nombre));
     return modifiedHtml;
   }
   modifyCss(cssContent) {
