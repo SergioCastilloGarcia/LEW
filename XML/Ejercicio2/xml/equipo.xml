@@ -21,12 +21,12 @@
   </estadio>
   <jugadores>
     <jugador>
-      <nombre>Luis García</nombre>
+      <nombre>Luis</nombre>
       <posicion>Delantero</posicion>
       <edad>28</edad>
     </jugador>
     <jugador>
-      <nombre>María Sánchez</nombre>
+      <nombre>María</nombre>
       <posicion>Centrocampista</posicion>
       <edad>25</edad>
     </jugador>

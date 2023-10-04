@@ -239,7 +239,33 @@ class ConertidorXML {
     modifiedHtml = modifiedHtml.replaceAll('{capacidad}', this.team.capacidad);
     modifiedHtml = modifiedHtml.replaceAll('{localizacion}', this.team.localizacion);
     modifiedHtml = modifiedHtml.replaceAll('{fotoEstadio}', this.team.fotoEstadio);
-    return modifiedHtml;
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(modifiedHtml, 'text/html');
+
+    const table = doc.querySelector('tbody');
+    for (let i = 0; i < this.team.redesSociales.length; i += 1) {
+      const tr = document.createElement('tr');
+      const name = document.createElement('td');
+      const edad = document.createElement('td');
+      const posicion = document.createElement('td');
+      name.textContent = this.team.jugadores[i].nombre;
+      edad.textContent = this.team.jugadores[i].edad;
+      posicion.textContent = this.team.jugadores[i].posicion;
+      tr.appendChild(name);
+      tr.appendChild(edad);
+      tr.appendChild(posicion);
+      table.appendChild(tr);
+    }
+    const footer = doc.querySelector('footer');
+    for (let i = 0; i < this.team.redesSociales.length; i += 1) {
+      const a = document.createElement('a');
+      a.textContent = this.team.redesSociales[i].nombre;
+      a.href = this.team.redesSociales[i].enlace;
+      footer.appendChild(a);
+    }
+    const serializer = new XMLSerializer();
+    return serializer.serializeToString(doc);
   }
   modifyCss(cssContent) {
     let modifiedCss = cssContent.replaceAll('#colorPrimario', this.team.colorPrimario);
