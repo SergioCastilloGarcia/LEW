@@ -11,6 +11,9 @@
       <xs:element name="pais" type="xs:string"/>
       <xs:element name="ciudad" type="xs:string"/>
       <xs:element name="fundacion" type="xs:gYear"/>
+      <xs:element name="eslogan" type="xs:string"/>
+      <xs:element name="escudo" type="xs:string"/>
+      <xs:element name="portada" type="xs:string"/>
       <xs:element name="estadio">
         <xs:complexType>
           <xs:sequence>
@@ -21,7 +24,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="escudo" type="xs:string"/>
       <xs:element name="jugadores" type="jugadoresType"/>
       <xs:element name="redesSociales" type="redesSocialesType" minOccurs="0"/>
       <!-- Otros datos de interés -->
