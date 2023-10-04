@@ -160,3 +160,9 @@ footer {
     padding: 2rem;
     bottom: 0;
 }
+
+footer a {
+    color: var(--color-secundary);
+    padding: 1rem;
+    font-size: 1.5rem;
+}

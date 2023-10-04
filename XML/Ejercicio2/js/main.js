@@ -41,6 +41,7 @@ class ConertidorXML {
     const ciudad = this.getCiudad();
     const fundacion = this.getFundacion();
     const eslogan = this.getEslogan();
+    const descripcion = this.getDescripcion();
     const escudo = this.getEscudo();
     const portada = this.getPortada();
     const colorPrimario = this.getColorPrimario();
@@ -58,6 +59,7 @@ class ConertidorXML {
       ciudad: ciudad,
       fundacion: fundacion,
       eslogan: eslogan,
+      descripcion: descripcion,
       escudo: escudo,
       portada: portada,
       colorPrimario: colorPrimario,
@@ -89,6 +91,10 @@ class ConertidorXML {
   //Dado un XML consigue el eslogan de un equipo
   getEslogan() {
     return this.getValue('eslogan');
+  }
+  //Dado un XML consigue la descripcion de un equipo
+  getDescripcion() {
+    return this.getValue('descripcion');
   }
   //Dado un XML consigue el escudo de un equipo
   getEscudo() {
@@ -232,6 +238,7 @@ class ConertidorXML {
     modifiedHtml = modifiedHtml.replaceAll('{pais}', this.team.pais);
     modifiedHtml = modifiedHtml.replaceAll('{ciudad}', this.team.ciudad);
     modifiedHtml = modifiedHtml.replaceAll('{fundacion}', this.team.fundacion);
+    modifiedHtml = modifiedHtml.replaceAll('{descripcion}', this.team.descripcion);
     modifiedHtml = modifiedHtml.replaceAll('{eslogan}', this.team.eslogan);
     modifiedHtml = modifiedHtml.replaceAll('{escudo}', this.team.escudo);
     modifiedHtml = modifiedHtml.replaceAll('{portada}', this.team.portada);
@@ -243,8 +250,15 @@ class ConertidorXML {
     const parser = new DOMParser();
     const doc = parser.parseFromString(modifiedHtml, 'text/html');
 
+    this.addJugadores(doc);
+    this.addRedesSociales(doc);
+
+    const serializer = new XMLSerializer();
+    return serializer.serializeToString(doc);
+  }
+  addJugadores(doc) {
     const table = doc.querySelector('tbody');
-    for (let i = 0; i < this.team.redesSociales.length; i += 1) {
+    for (let i = 0; i < this.team.jugadores.length; i += 1) {
       const tr = document.createElement('tr');
       const name = document.createElement('td');
       const edad = document.createElement('td');
@@ -257,6 +271,8 @@ class ConertidorXML {
       tr.appendChild(posicion);
       table.appendChild(tr);
     }
+  }
+  addRedesSociales(doc) {
     const footer = doc.querySelector('footer');
     for (let i = 0; i < this.team.redesSociales.length; i += 1) {
       const a = document.createElement('a');
@@ -264,8 +280,6 @@ class ConertidorXML {
       a.href = this.team.redesSociales[i].enlace;
       footer.appendChild(a);
     }
-    const serializer = new XMLSerializer();
-    return serializer.serializeToString(doc);
   }
   modifyCss(cssContent) {
     let modifiedCss = cssContent.replaceAll('#colorPrimario', this.team.colorPrimario);

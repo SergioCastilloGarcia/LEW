@@ -8,9 +8,10 @@
   <pais>España</pais>
   <ciudad>Oviedo</ciudad>
   <fundacion>1926</fundacion>
-  <eslogan>El equipo de la capital del principado</eslogan>
-  <escudo>https://i.pinimg.com/originals/69/8f/11/698f1162fc45267c5760b5b17f5cccb2.jpg</escudo>
-  <portada>https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg</portada>
+  <descripcion>El Real Oviedo es un club de fútbol fundado tras la unión de la Sportiva Ovetense y el Real Stadium. Actualmente milita en la segunda divisón española, conocida oficialmente como LaLiga Hypermotion</descripcion>
+  <eslogan>Orgullo, Valor y Garra</eslogan>
+  <escudo>https://assets.stickpng.com/images/584ad377b519ea740933a8d5.png</escudo>
+  <portada>https://estaticos-cdn.prensaiberica.es/clip/542c5434-84ab-41c4-9c1d-d2623dbdeb52_21-9-aspect-ratio_default_0.jpg</portada>
   <colorPrimario>#08066e</colorPrimario>
   <colorSecundario>#fff</colorSecundario>
   <estadio>
@@ -21,20 +22,53 @@
   </estadio>
   <jugadores>
     <jugador>
-      <nombre>Luis</nombre>
+      <nombre>Braat</nombre>
+      <posicion>Portero</posicion>
+      <edad>21</edad>
+    </jugador>
+    <jugador>
+      <nombre>Costas</nombre>
+      <posicion>Central</posicion>
+      <edad>29</edad>
+    </jugador>
+    <jugador>
+      <nombre>Calvo</nombre>
+      <posicion>Central</posicion>
+      <edad>29</edad>
+    </jugador>
+    <jugador>
+      <nombre>Colombatto</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>28</edad>
+    </jugador>
+    <jugador>
+      <nombre>Cazorla</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>38</edad>
+    </jugador>
+    <jugador>
+      <nombre>Bastón</nombre>
       <posicion>Delantero</posicion>
       <edad>28</edad>
     </jugador>
     <jugador>
-      <nombre>María</nombre>
-      <posicion>Centrocampista</posicion>
-      <edad>25</edad>
+      <nombre>Masca</nombre>
+      <posicion>Delantero</posicion>
+      <edad>22</edad>
     </jugador>
   </jugadores>
   <redesSociales>
     <redSocial>
       <nombre>Twitter</nombre>
       <enlace>https://twitter.com/realoviedo</enlace>
+    </redSocial>
+    <redSocial>
+      <nombre>Instagram</nombre>
+      <enlace>https://www.instagram.com/realoviedo</enlace>
+    </redSocial>
+    <redSocial>
+      <nombre>TikTok</nombre>
+      <enlace>https://www.tiktok.com/@realoviedo</enlace>
     </redSocial>
     <redSocial>
       <nombre>Facebook</nombre>

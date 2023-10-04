@@ -11,6 +11,7 @@
       <xs:element name="pais" type="xs:string"/>
       <xs:element name="ciudad" type="xs:string"/>
       <xs:element name="fundacion" type="xs:gYear"/>
+      <xs:element name="descripcion" type="xs:string"/>
       <xs:element name="eslogan" type="xs:string"/>
       <xs:element name="escudo" type="xs:string"/>
       <xs:element name="portada" type="xs:string"/>
