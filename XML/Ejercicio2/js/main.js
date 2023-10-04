@@ -37,20 +37,74 @@ class ConertidorXML {
 
   makeTeam() {
     const nombre = this.getNombre();
+    const pais = this.getPais();
+    const ciudad = this.getCiudad();
+    const fundacion = this.getFundacion();
+    const eslogan = this.getEslogan();
+    const escudo = this.getEscudo();
+    const portada = this.getPortada();
     const nombreEstadio = this.getNombreEstadio();
+    const capacidad = this.getCapacidadEstadio();
+    const localizacion = this.getLocalizacionEstadio();
+    const fotoEstadio = this.getFotoEstadio();
 
     this.team = {
       nombre: nombre,
-      nombreEstadio: nombreEstadio
+      pais: pais,
+      ciudad: ciudad,
+      fundacion: fundacion,
+      eslogan: eslogan,
+      escudo: escudo,
+      portada: portada,
+      nombreEstadio: nombreEstadio,
+      capacidad: capacidad,
+      localizacion: localizacion,
+      fotoEstadio: fotoEstadio
     };
   }
   //Dado un XML consigue el nombre de un equipo
   getNombre() {
-    return this.getValue('nombre')
+    return this.getValue('nombre');
   }
-  //Dado un XML consigue el nombre de un equipo
+  //Dado un XML consigue el nombre del pais de un equipo
+  getPais() {
+    return this.getValue('pais');
+  }
+  //Dado un XML consigue el nombre de la ciudad de un equipo
+  getCiudad() {
+    return this.getValue('ciudad');
+  }
+  //Dado un XML consigue la fundación de un equipo
+  getFundacion() {
+    return this.getValue('fundacion');
+  }
+  //Dado un XML consigue el eslogan de un equipo
+  getEslogan() {
+    return this.getValue('eslogan');
+  }
+  //Dado un XML consigue el escudo de un equipo
+  getEscudo() {
+    return this.getValue('escudo');
+  }
+  //Dado un XML consigue la portada de un equipo
+  getPortada() {
+    return this.getValue('portada');
+  }
+  //Dado un XML consigue el nombre del estadio de un equipo
   getNombreEstadio() {
-    return this.getValue('nombreEstadio')
+    return this.getValue('nombreEstadio');
+  }
+  //Dado un XML consigue la localizacion del estadio de un equipo
+  getLocalizacionEstadio() {
+    return this.getValue('localizacion');
+  }
+  //Dado un XML consigue la capacidad del estadio de un equipo
+  getFotoEstadio() {
+    return this.getValue('fotoEstadio');
+  }
+  //Dado un XML consigue la foto del estadio de un equipo
+  getCapacidadEstadio() {
+    return this.getValue('capacidad');
   }
   //Consigue uno o más valores del xml
   getValue(attribute) {
@@ -135,6 +189,16 @@ class ConertidorXML {
   modifyHtml(htmlContent) {
     let modifiedHtml = htmlContent.replaceAll('{nombre}', this.team.nombre);
     modifiedHtml = modifiedHtml.replaceAll('{nombrecss}', encodeURIComponent(this.team.nombre));
+    modifiedHtml = modifiedHtml.replaceAll('{pais}', this.team.pais);
+    modifiedHtml = modifiedHtml.replaceAll('{ciudad}', this.team.ciudad);
+    modifiedHtml = modifiedHtml.replaceAll('{fundacion}', this.team.fundacion);
+    modifiedHtml = modifiedHtml.replaceAll('{eslogan}', this.team.eslogan);
+    modifiedHtml = modifiedHtml.replaceAll('{escudo}', this.team.escudo);
+    modifiedHtml = modifiedHtml.replaceAll('{portada}', this.team.portada);
+    modifiedHtml = modifiedHtml.replaceAll('{nombreEstadio}', this.team.nombreEstadio);
+    modifiedHtml = modifiedHtml.replaceAll('{capacidad}', this.team.capacidad);
+    modifiedHtml = modifiedHtml.replaceAll('{localizacion}', this.team.localizacion);
+    modifiedHtml = modifiedHtml.replaceAll('{fotoEstadio}', this.team.fotoEstadio);
     return modifiedHtml;
   }
   modifyCss(cssContent) {

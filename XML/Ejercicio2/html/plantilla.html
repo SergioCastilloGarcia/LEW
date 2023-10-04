@@ -10,21 +10,18 @@
     <meta name="author" content="Sergio Castillo García">
 
     <!-- Enlace a una hoja de estilo externa -->
-    <!-- <link rel="stylesheet" href="./{nombrecss}.css">-->
-    <link rel="stylesheet" href="../css/plantilla.css">
+    <link rel="stylesheet" href="./{nombrecss}.css">
     <script src="../js/main.js"></script>
 </head>
 
 <body>
     <header>
-        <img src="https://i.pinimg.com/originals/69/8f/11/698f1162fc45267c5760b5b17f5cccb2.jpg"
-            alt="Escudo del {nombre}">
+        <img src="{escudo}" alt="Escudo del {nombre}">
         <h1>{nombre}</h1>
     </header>
     <main>
         <section>
-            <img src="https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg"
-                alt="Portada del {nombre}">
+            <img src="{portada}" alt="Portada del {nombre}">
             <h2>{eslogan}</h2>
         </section>
         <section>
@@ -44,8 +41,7 @@
         </section>
         <aside>
             <h2>{nombreEstadio}</h2>
-            <img src="https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg"
-                alt="Estadio del {nombre}">
+            <img src="{fotoEstadio}" alt="Estadio del {nombre}">
             <h3>Capacidad</h3>
             <p>{capacidad}</p>
             <h3>Localización</h3>
@@ -83,7 +79,6 @@
     </main>
 
     <footer>
-        <p>Página web del {nombre}</p>
     </footer>
 </body>
 
