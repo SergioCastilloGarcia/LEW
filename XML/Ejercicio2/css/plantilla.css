@@ -23,10 +23,11 @@ header {
 }
 
 header img {
-    width: 50%;
+    width: 40%;
     height: auto;
     grid-column: 1;
     grid-row: 1;
+    margin-left: 10%;
 }
 
 header h1 {
@@ -34,6 +35,7 @@ header h1 {
     grid-row: 1;
     font-size: 3rem;
     cursor: pointer;
+    align-self: center;
 }
 
 img {
