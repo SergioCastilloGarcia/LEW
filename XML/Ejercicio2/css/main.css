@@ -33,8 +33,7 @@ footer {
 
 
 button {
-
-    padding: 1em 2em;
+    padding: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
@@ -54,8 +53,22 @@ button:hover {
 
 main {
     color: #333;
-    gap: 5rem;
-    /* Espacio entre las secciones */
-    padding: 5rem;
+    gap: 15rem;
     padding-bottom: 20%;
+    padding-left: 2rem;
+}
+
+input {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    cursor: pointer;
+}
+
+input:hover {
+    background-color: #0056b3;
 }

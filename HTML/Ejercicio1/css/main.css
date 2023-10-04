@@ -95,7 +95,7 @@ section {
 
 section h3 {
     color: #333;
-    /*Hereda background-color de section*/
+    padding-left: 2rem;
 }
 
 
