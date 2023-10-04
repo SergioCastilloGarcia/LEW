@@ -1,6 +1,6 @@
 :root {
-    --color-primary: #333;
-    --color-secundary: #fff;
+    --color-primary: #colorPrimario;
+    --color-secundary: #colorSecundario;
 }
 
 body {
@@ -30,7 +30,7 @@ header img {
 }
 
 header h1 {
-    grid-column: 2;
+    grid-column: 2/10;
     grid-row: 1;
     font-size: 3rem;
     cursor: pointer;
@@ -70,7 +70,7 @@ main section:first-child h2 {
     height: fit-content;
     color: #1B1B1B;
     font-size: 150%;
-    text-align: justify;
+    text-align: center;
     background-color: white;
     border: 1em;
     border-color: transparent;

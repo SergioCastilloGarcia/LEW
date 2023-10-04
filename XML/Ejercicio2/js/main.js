@@ -43,6 +43,8 @@ class ConertidorXML {
     const eslogan = this.getEslogan();
     const escudo = this.getEscudo();
     const portada = this.getPortada();
+    const colorPrimario = this.getColorPrimario();
+    const colorSecundario = this.getColorSecundario();
     const nombreEstadio = this.getNombreEstadio();
     const capacidad = this.getCapacidadEstadio();
     const localizacion = this.getLocalizacionEstadio();
@@ -56,6 +58,8 @@ class ConertidorXML {
       eslogan: eslogan,
       escudo: escudo,
       portada: portada,
+      colorPrimario: colorPrimario,
+      colorSecundario: colorSecundario,
       nombreEstadio: nombreEstadio,
       capacidad: capacidad,
       localizacion: localizacion,
@@ -89,6 +93,14 @@ class ConertidorXML {
   //Dado un XML consigue la portada de un equipo
   getPortada() {
     return this.getValue('portada');
+  }
+  //Dado un XML consigue el colorPrimario de un equipo
+  getColorPrimario() {
+    return this.getValue('colorPrimario');
+  }
+  //Dado un XML consigue el colorPrimario de un equipo
+  getColorSecundario() {
+    return this.getValue('colorSecundario');
   }
   //Dado un XML consigue el nombre del estadio de un equipo
   getNombreEstadio() {
@@ -202,7 +214,9 @@ class ConertidorXML {
     return modifiedHtml;
   }
   modifyCss(cssContent) {
-    return cssContent;
+    let modifiedCss = cssContent.replaceAll('#colorPrimario', this.team.colorPrimario);
+    modifiedCss = modifiedCss.replaceAll('#colorSecundario', this.team.colorSecundario);
+    return modifiedCss;
   }
 }
 

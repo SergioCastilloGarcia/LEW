@@ -11,8 +11,10 @@
   <eslogan>El equipo de la capital del principado</eslogan>
   <escudo>https://i.pinimg.com/originals/69/8f/11/698f1162fc45267c5760b5b17f5cccb2.jpg</escudo>
   <portada>https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg</portada>
+  <colorPrimario>#08066e</colorPrimario>
+  <colorSecundario>#fff</colorSecundario>
   <estadio>
-    <nombreEstadio>tartiere </nombreEstadio>
+    <nombreEstadio>Carlos Tartiere</nombreEstadio>
     <capacidad>30500</capacidad>
     <localizacion>La Ería</localizacion>
     <fotoEstadio>https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg</fotoEstadio>
