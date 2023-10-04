@@ -1,21 +1,15 @@
-:root {
-    --color-primary: #colorPrimario;
-    --color-secundary: #colorSecundario;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
-    display: flexbox;
     width: 100%;
 }
 
 
 header {
-    background-color: var(--color-primary);
-    color: var(--color-secundary);
+    background-color: #colorPrimario;
+    color: #colorSecundario;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -78,7 +72,7 @@ main section:first-child h2 {
     border-color: transparent;
     background-clip: padding-box;
     border-style: solid;
-    box-shadow: 0px 0px 0px 20px var(--color-primary);
+    box-shadow: 0px 0px 0px 20px #colorPrimario;
     padding: 2rem;
     grid-row: 1;
     grid-column: 1;
@@ -100,8 +94,8 @@ main aside {
 }
 
 main h2 {
-    background-color: var(--color-primary);
-    color: var(--color-secundary);
+    background-color: #colorPrimario;
+    color: #colorSecundario;
     margin: 0;
     padding: 1rem;
     text-align: center;
@@ -156,15 +150,15 @@ tr:nth-child(odd) {
 
 
 footer {
-    background-color: var(--color-primary);
-    color: var(--color-secundary);
+    background-color: #colorPrimario;
+    color: #colorSecundario;
     text-align: center;
     padding: 2rem;
     bottom: 0;
 }
 
 footer a {
-    color: var(--color-secundary);
+    color: #colorSecundario;
     padding: 1rem;
     font-size: 1.5rem;
 }
