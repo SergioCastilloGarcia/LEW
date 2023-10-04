@@ -49,6 +49,8 @@ class ConertidorXML {
     const capacidad = this.getCapacidadEstadio();
     const localizacion = this.getLocalizacionEstadio();
     const fotoEstadio = this.getFotoEstadio();
+    const jugadores = this.getJugadores();
+    const redesSociales = this.getRedesSociales();
 
     this.team = {
       nombre: nombre,
@@ -63,7 +65,9 @@ class ConertidorXML {
       nombreEstadio: nombreEstadio,
       capacidad: capacidad,
       localizacion: localizacion,
-      fotoEstadio: fotoEstadio
+      fotoEstadio: fotoEstadio,
+      jugadores: jugadores,
+      redesSociales: redesSociales
     };
   }
   //Dado un XML consigue el nombre de un equipo
@@ -118,7 +122,32 @@ class ConertidorXML {
   getCapacidadEstadio() {
     return this.getValue('capacidad');
   }
-  //Consigue uno o más valores del xml
+  //Dado un XML consigue los jugafores de un equipo
+  getJugadores() {
+    let jugadoresArray = this.getValue('jugadores').replace(/\n/g, ' ').split(' ').filter(word => word !== '');
+    const jugadores = [];
+
+    for (let i = 0; i < jugadoresArray.length; i += 3) {
+      const nombre = jugadoresArray[i];
+      const posicion = jugadoresArray[i + 1];
+      const edad = jugadoresArray[i + 2];
+      jugadores.push({ nombre, posicion, edad });
+    }
+    return jugadores;
+  }
+  //Dado un XML consigue las redes sociales de un equipo
+  getRedesSociales() {
+    let redesSocialesArray = this.getValue('redesSociales').replace(/\n/g, ' ').split(' ').filter(word => word !== '');
+    const redesSociales = [];
+
+    for (let i = 0; i < redesSocialesArray.length; i += 2) {
+      const nombre = redesSocialesArray[i];
+      const enlace = redesSocialesArray[i + 1];
+      redesSociales.push({ nombre, enlace });
+    }
+    return redesSociales;
+  }
+  //Consigue uno valor del xml
   getValue(attribute) {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(this.xmlContent, 'text/xml');
@@ -133,7 +162,6 @@ class ConertidorXML {
       return null;
     }
   }
-
 
   downloadPlantilla() {
     this.downloadHtml();
