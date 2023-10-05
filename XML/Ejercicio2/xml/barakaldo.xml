@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <equipo 
-    xmlns="http://www.uniovi.es/uo276436/lew"
+    xmlns="http://www.uniovi.es"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.uniovi.es/uo276436/lew equipo.xsd"
+    xsi:schemaLocation="http://www.uniovi.es equipo.xsd"
     >
   <nombre>Barakaldo CF</nombre>
   <pais>España</pais>
