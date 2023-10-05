@@ -1,12 +1,13 @@
 class ConertidorXML {
 
+  //Constructor de ConertidorXML
   constructor() {
     this.xmlContent;
     this.plantillaHTML = '../html/plantilla.html';
     this.plantillaCSS = '../css/plantilla.css';
     this.team;
   }
-
+  //Metodo para cargar un xml (es el onClick del input de la página)
   handleFile(event) {
     const file = event.target.files[0];
     if (file) {
@@ -19,10 +20,12 @@ class ConertidorXML {
       alert('Selecciona un archivo XML antes de subirlo.');
     }
   }
-readerOnLoad(event){
-  this.xmlContent = event.target.result;
+  //Metodo que encapsula en onload del FileReader
+  readerOnLoad(event) {
+    this.xmlContent = event.target.result;
 
-}
+  }
+  //Método que parsea el XML
   async parseXML() {
     if (this.xmlContent) {
       const parser = new DOMParser();
@@ -35,7 +38,7 @@ readerOnLoad(event){
     }
   }
 
-
+  //Método que consigue todos los datos de un equipo
   makeTeam() {
     const nombre = this.getNombre();
     const pais = this.getPais();
@@ -169,11 +172,12 @@ readerOnLoad(event){
       return null;
     }
   }
-
+  //Método que descarga el HTML y el CSS
   downloadPlantilla() {
     this.downloadHtml();
     this.downloadCss();
   }
+  //Método que descarga el HTML
   downloadHtml() {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', this.plantillaHTML, true);
@@ -184,6 +188,7 @@ readerOnLoad(event){
     xhr.send();
   }
 
+  //Método que descarga el CSS
   downloadCss() {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', this.plantillaCSS, true);
@@ -193,6 +198,7 @@ readerOnLoad(event){
 
     xhr.send();
   }
+  //Método que encapsula el onLoad de la XMLHttpRequest (para descargar el HTML)
   htmlOnLoad(xhr) {
     if (xhr.status === 200) {
       const reader = new FileReader();
@@ -200,6 +206,7 @@ readerOnLoad(event){
       reader.readAsText(xhr.response, 'utf-8');
     }
   }
+  //Método que encapsula el onLoad de la XMLHttpRequest (para descargar el CSS)
   cssOnLoad(xhr) {
     if (xhr.status === 200) {
       const reader = new FileReader();
@@ -207,6 +214,7 @@ readerOnLoad(event){
       reader.readAsText(xhr.response, 'utf-8');
     }
   }
+  //Método que encapsula la configuracion del Blob (para descargar el HTML)
   htmlConfigurator(htmlContent) {
     const blob = new Blob([htmlContent], { type: 'text/html' });
 
@@ -220,6 +228,7 @@ readerOnLoad(event){
     document.body.removeChild(a);
 
   }
+  //Método que encapsula la configuracion del Blob (para descargar el CSS)
   cssConfigurator(cssContent) {
     const blob = new Blob([cssContent], { type: 'text/css' });
 
@@ -233,6 +242,7 @@ readerOnLoad(event){
     document.body.removeChild(a);
 
   }
+  //Método que modifica la plantilla HTML
   modifyHtml(htmlContent) {
     let modifiedHtml = htmlContent.replaceAll('{nombre}', this.team.nombre);
     modifiedHtml = modifiedHtml.replaceAll('{nombrecss}', encodeURIComponent(this.team.nombre));
@@ -257,6 +267,7 @@ readerOnLoad(event){
     const serializer = new XMLSerializer();
     return serializer.serializeToString(doc);
   }
+  //Método que añade los jugadores al HTML
   addJugadores(doc) {
     const table = doc.querySelector('tbody');
     for (let i = 0; i < this.team.jugadores.length; i += 1) {
@@ -273,6 +284,7 @@ readerOnLoad(event){
       table.appendChild(tr);
     }
   }
+  //Método que añade las redes sociales al HTML
   addRedesSociales(doc) {
     const footer = doc.querySelector('footer');
     for (let i = 0; i < this.team.redesSociales.length; i += 1) {
@@ -282,6 +294,7 @@ readerOnLoad(event){
       footer.appendChild(a);
     }
   }
+  //Método que modifica la plantilla CSS
   modifyCss(cssContent) {
     let modifiedCss = cssContent.replaceAll('#colorPrimario', this.team.colorPrimario);
     modifiedCss = modifiedCss.replaceAll('#colorSecundario', this.team.colorSecundario);
