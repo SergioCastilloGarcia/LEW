@@ -1,3 +1,4 @@
+/*0.1.2*/
 /*Situacion*/
 main section:nth-child(2n) {
     background-color: #FF6000;
@@ -7,6 +8,7 @@ main section:nth-child(2n) {
     font-weight: bold;
 }
 
+/*0.1.3*/
 main section:nth-child(2n) h2 {
     padding-top: 2rem;
     padding-bottom: 1rem;
@@ -15,6 +17,7 @@ main section:nth-child(2n) h2 {
     margin-bottom: 0;
 }
 
+/*0.1.3*/
 main section:nth-child(2n) p {
     background-color: white;
     padding-bottom: 1rem;

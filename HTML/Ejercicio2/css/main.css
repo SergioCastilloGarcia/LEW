@@ -1,71 +1,76 @@
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: auto;
-        /* Altura automática según el contenido */
-        min-height: 100vh;
-        background-color: #1B1B1B;
-        color: #1B1B1B;
-        /*Que el color y background-color son igual es cosa del diseño*/
-
-    }
+/*0.0.1*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto;
+    min-height: 100vh;
+    background-color: #1B1B1B;
+    color: #1B1B1B;
+}
 
 
-    article,
-    section p {
-        position: relative;
-        width: 100%;
-        margin: 0;
-        /* Elimina márgenes para ocupar todo el ancho */
-        padding: 0;
-        /* Elimina relleno para ocupar todo el ancho */
+/*0.0.2*/
+article,
+section p {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    /* Elimina márgenes para ocupar todo el ancho */
+    padding: 0;
+    /* Elimina relleno para ocupar todo el ancho */
 
-        color: #1B1B1B;
-        /*Hereda background-color de article y section*/
-        border: 0rem;
-        box-shadow: 0 0 0 0;
-        /* Ajusta el valor para la distancia */
-        font-size: 1rem;
-    }
-
-
-    article p {
-        text-align: start;
-
-    }
+    color: #1B1B1B;
+    /*Hereda background-color de article y section*/
+    border: 0rem;
+    box-shadow: 0 0 0 0;
+    /* Ajusta el valor para la distancia */
+    font-size: 1rem;
+}
 
 
-    article,
-    section,
-    aside {
-        grid-column: 1/-1;
-    }
+/*0.0.2*/
+article p {
+    text-align: start;
+
+}
 
 
-    article h2,
-    section h2 {
-        margin-bottom: 1rem;
-    }
+/*0.0.1*/
+article,
+section,
+aside {
+    grid-column: 1/-1;
+}
 
-    article ul,
-    section ul {
-        list-style-type: disc;
-        padding-left: 2rem;
-    }
 
-    h2 {
-        font-size: 3rem;
-        text-align: center;
+/*0.0.2*/
+article h2,
+section h2 {
+    margin-bottom: 1rem;
+}
 
-    }
+/*0.0.2*/
+article ul,
+section ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
 
-    section h2 {
-        text-transform: uppercase;
-    }
+/*0.0.1*/
+h2 {
+    font-size: 3rem;
+    text-align: center;
+}
 
-    section {
-        padding: 2rem;
-    }
+/*0.0.2*/
+section h2 {
+    text-transform: uppercase;
+}
+
+/*0.0.1*/
+section {
+    padding: 2rem;
+}

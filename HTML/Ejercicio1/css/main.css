@@ -1,3 +1,4 @@
+/*0.0.1*/
 body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -8,7 +9,7 @@ body {
     color: #333;
 }
 
-
+/*0.0.1*/
 header {
     background-color: #333;
     color: #fff;
@@ -17,19 +18,19 @@ header {
     grid-column: 1/5;
     grid-row: 1;
 }
-
+/*0.0.1*/
 h1 {
     font-size: 3rem;
 }
-
+/*0.0.1*/
 h2 {
     font-size: 2.5rem;
 }
-
+/*0.0.1*/
 h3 {
     font-size: 2rem;
 }
-
+/*0.0.1*/
 main {
     grid-column: 1/5;
     grid-row: 2/4;
@@ -38,12 +39,12 @@ main {
     color: #333;
     /*Heredaa background-color de body*/
 }
-
+/*0.0.2*/
 main h2 {
     text-align: center;
     grid-column: 1/5;
 }
-
+/*0.0.2*/
 section img {
     width: 90%;
     height: auto;
@@ -54,16 +55,16 @@ section img {
     /* Alinea la imagen en el centro */
     margin: 0 auto;
 }
-
+/*0.1.2*/
 main article:first {
     padding: 2em;
     grid-column: 1;
 }
-
+/*0.1.3*/
 main article:first h3 {
     text-align: center;
 }
-
+/*0.0.1*/
 article {
     padding: 2em;
     grid-column: 2/5;
@@ -71,34 +72,34 @@ article {
     color: #333;
 }
 
-
+/*0.0.2*/
 nav ul {
     list-style: none;
     padding: 0;
 }
-
+/*0.0.3*/
 nav ul li {
     display: inline;
     margin: 1rem;
 }
-
+/*0.0.4*/
 nav ul li a {
     color: #fff;
     /*Hereda background-color de header*/
     text-decoration: none;
 }
 
-
+/*0.0.1*/
 section {
     margin-bottom: 2rem;
 }
-
+/*0.0.2*/
 section h3 {
     color: #333;
     padding-left: 2rem;
 }
 
-
+/*0.0.1*/
 footer {
     background-color: #333;
     color: #fff;
@@ -108,20 +109,20 @@ footer {
     grid-column: 1/5;
     grid-row: 4;
 }
-
+/*0.0.1*/
 p {
     font-size: 1.2rem;
 }
-
+/*0.0.2*/
 article h2 {
     text-align: left;
 }
-
+/*0.0.1*/
 img {
     /* Transición suave al agrandar */
     transition: transform 0.3s ease-in-out;
 }
-
+/*0.1.1*/
 img:hover {
     /* Agrandar la imagen al hacer hover */
     transform: scale(1.15);

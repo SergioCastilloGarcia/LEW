@@ -1,20 +1,21 @@
+/*0.0.1*/
 main {
     padding: 0rem;
     display: list-item;
 }
-
+/*0.0.1*/
 h3 {
     text-align: center;
     grid-column: 1/-1;
 }
-
+/*0.0.1*/
 section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     /* Columnas autoajustables */
 
 }
-
+/*0.0.2*/
 section img {
     width: 80%;
     border-radius: 10%;

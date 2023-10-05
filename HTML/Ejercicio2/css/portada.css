@@ -1,3 +1,5 @@
+
+/*0.0.1*/
 main {
     background-color: #f0f0f0;
     /*Hereda -color de body*/
@@ -8,6 +10,7 @@ main {
     grid-column: 1/-1;
 }
 
+/*0.0.2*/
 main p {
     margin-bottom: 15rem;
     height: fit-content;
@@ -25,17 +28,20 @@ main p {
     grid-column: 2/-2;
 }
 
+/*0.1.2*/
 main p:nth-child(2n) {
     grid-row: 2;
     border-left-width: 10rem;
 }
 
+/*0.1.2*/
 main p:nth-child(2n+1) {
     grid-row: 5;
     border-right-width: 10rem;
 }
 
 
+/*0.0.2*/
 main img {
     width: 100%;
     height: auto;
@@ -43,11 +49,13 @@ main img {
     display: block;
 }
 
+/*0.1.2*/
 main img:nth-child(2n) {
     grid-row: 4/7;
     /* Ocupa la primera fila */
 }
 
+/*0.1.2*/
 main img:nth-child(2n+1) {
     grid-row: 1/4;
     /* Ocupa la primera fila */

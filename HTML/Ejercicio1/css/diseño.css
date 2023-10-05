@@ -1,8 +1,11 @@
+
+/*0.0.1*/
 main {
     padding: 0rem;
     display: list-item;
 }
 
+/*0.0.1*/
 /* Aplica un fondo de otro color a cada segunda sección */
 section {
     text-align: center;
@@ -13,17 +16,20 @@ section {
     padding: 2em;
 }
 
+/*0.1.1*/
 /* Aplica un fondo de otro color a cada segunda sección */
 section:nth-child(2n) {
     background-color: #ffffff;
     /*Hereda color de section*/
 }
 
+/*0.1.1*/
 article:nth-child(2n+1) {
     background-color: #f0f0f0;
     /*Hereda color de article*/
 }
 
+/*0.0.2*/
 section img {
     /* Crea un borde redondeado */
     border-radius: 10%;
@@ -31,46 +37,55 @@ section img {
     grid-row: 1/5;
 }
 
+/*0.0.2*/
 section h2 {
     grid-row: 1;
 }
 
+/*0.0.2*/
 section p {
     grid-row: 2;
 }
 
+/*0.1.2*/
 section img:nth-child(2n) {
     grid-column: 3/6;
 }
 
+/*0.1.2*/
 section h2:nth-child(2n) {
     grid-column: 4/6;
 }
 
+/*0.1.2*/
 section p:nth-child(2n+1) {
     grid-column: 4/6;
 }
 
+/*0.1.2*/
 section img:nth-child(2n+1) {
     grid-column: 1/4;
 }
 
+/*0.1.2*/
 section h2:nth-child(2n+1) {
     grid-column: 1/3;
 }
 
+/*0.1.2*/
 section p:nth-child(2n) {
     grid-column: 1/3;
 }
 
+/*0.1.2*/
 section a:nth-child(2n+1) {
     grid-column: 1/3;
 }
-
+/*0.1.2*/
 section a:nth-child(2n) {
     grid-column: 4/6;
 }
-
+/*0.0.2*/
 section a {
     padding: 1em 2em;
     font-size: 1.5rem;
@@ -86,7 +101,7 @@ section a {
     margin-top: 2rem;
     /* Espacio superior */
 }
-
+/*0.1.2*/
 section a:hover {
     background-color: #0056b3;
     /*Hereda color de a*/
