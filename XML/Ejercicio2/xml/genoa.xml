@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<equipo 
+    xmlns="http://www.uniovi.es/uo276436/lew"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uniovi.es/uo276436/lew equipo.xsd"
+    >
+  <nombre>Genoa CFC</nombre>
+  <pais>Italia</pais>
+  <ciudad>Génova</ciudad>
+  <fundacion>1893</fundacion>
+  <descripcion>El Genoa Cricket and Football Club es un club de fútbol italiano con sede en Génova, fundado en 1893, siendo uno de los clubes más antiguos de Italia. Juega en la Serie A, la máxima categoría del fútbol italiano. El club ha experimentado éxitos en su historia y es conocido por su fuerte rivalidad con la Sampdoria en el Derby della Lanterna. Su estadio es el Luigi Ferraris, que comparte con la Sampdoria. El Genoa ha logrado varios títulos de liga y copas a lo largo de su trayectoria.</descripcion>
+  <eslogan>Forza Genoa!</eslogan>
+  <escudo>https://seeklogo.com/images/G/genoa-cricket-football-club-logo-C7D77680BA-seeklogo.com.png</escudo>
+  <portada>https://cdn.swanseacity.com/sites/default/files/archive/genoa16.jpg</portada>
+  <colorPrimario>#022446</colorPrimario>
+  <colorSecundario>#e90000</colorSecundario>
+  <estadio>
+    <nombreEstadio>Luigi Ferraris</nombreEstadio>
+    <capacidad>36599</capacidad>
+    <localizacion>Barrio de Marassi</localizacion>
+    <fotoEstadio>https://www.radionacional.gov.py/wp-content/uploads/2018/11/stadio-luigi-ferraris.jpg</fotoEstadio>
+  </estadio>
+  <jugadores>
+    <jugador>
+      <nombre>Josep</nombre>
+      <posicion>Portero</posicion>
+      <edad>25</edad>
+    </jugador>
+    <jugador>
+      <nombre>Sabelli</nombre>
+      <posicion>Central</posicion>
+      <edad>30</edad>
+    </jugador>
+    <jugador>
+      <nombre>Vogliacco</nombre>
+      <posicion>Central</posicion>
+      <edad>25</edad>
+    </jugador>
+    <jugador>
+      <nombre>Badelj</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>34</edad>
+    </jugador>
+    <jugador>
+      <nombre>Thorsby</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>27</edad>
+    </jugador>
+    <jugador>
+      <nombre>Retegui</nombre>
+      <posicion>Delantero</posicion>
+      <edad>24</edad>
+    </jugador>
+    <jugador>
+      <nombre>Messias</nombre>
+      <posicion>Delantero</posicion>
+      <edad>32</edad>
+    </jugador>
+  </jugadores>
+  <redesSociales>
+    <redSocial>
+      <nombre>Twitter</nombre>
+      <enlace>https://twitter.com/genoacfc</enlace>
+    </redSocial>
+    <redSocial>
+      <nombre>Instagram</nombre>
+      <enlace>https://www.instagram.com/genoacfc</enlace>
+    </redSocial>
+  </redesSociales>
+</equipo>

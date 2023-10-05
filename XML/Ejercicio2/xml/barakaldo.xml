@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<equipo 
+    xmlns="http://www.uniovi.es/uo276436/lew"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uniovi.es/uo276436/lew equipo.xsd"
+    >
+  <nombre>Barakaldo CF</nombre>
+  <pais>España</pais>
+  <ciudad>Barakaldo</ciudad>
+  <fundacion>1917</fundacion>
+  <descripcion>El Barakaldo CF es un club de de Vizcaya que actualemnte milita en la cuarta división del fútbol español la Segunda División RFEF. El club fabril es un histórico de la segunda división y espera volver a encontrase con dicha categoría tras unos años de incertidubre económica y deportiva.</descripcion>
+  <eslogan>Barakaldo Nunca se Rinde</eslogan>
+  <escudo>https://barakaldocf.com/storage/2020/06/escudosinfondo.png</escudo>
+  <portada>https://barakaldocf.com/storage/2021/10/img_20211031_1958495958752782174716676.jpg</portada>
+  <colorPrimario>#ffd100</colorPrimario>
+  <colorSecundario>#000000</colorSecundario>
+  <estadio>
+    <nombreEstadio>Lasesarre</nombreEstadio>
+    <capacidad>7960</capacidad>
+    <localizacion>Ria de Barakaldo</localizacion>
+    <fotoEstadio>https://www.bilbaoria2000.org/assets/media/galeria-barakaldo-laseasarre-2-992x662.jpg</fotoEstadio>
+  </estadio>
+  <jugadores>
+    <jugador>
+      <nombre>Tena</nombre>
+      <posicion>Portero</posicion>
+      <edad>22</edad>
+    </jugador>
+    <jugador>
+      <nombre>Makel</nombre>
+      <posicion>Central</posicion>
+      <edad>24</edad>
+    </jugador>
+    <jugador>
+      <nombre>Oier</nombre>
+      <posicion>Central</posicion>
+      <edad>23</edad>
+    </jugador>
+    <jugador>
+      <nombre>Txoperena</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>26</edad>
+    </jugador>
+    <jugador>
+      <nombre>Ekaitz</nombre>
+      <posicion>Centrocampista</posicion>
+      <edad>25</edad>
+    </jugador>
+    <jugador>
+      <nombre>Orozco</nombre>
+      <posicion>Delantero</posicion>
+      <edad>28</edad>
+    </jugador>
+    <jugador>
+      <nombre>Ander</nombre>
+      <posicion>Delantero</posicion>
+      <edad>24</edad>
+    </jugador>
+  </jugadores>
+  <redesSociales>
+    <redSocial>
+      <nombre>Twitter</nombre>
+      <enlace>https://twitter.com/barakaldocf</enlace>
+    </redSocial>
+    <redSocial>
+      <nombre>Instagram</nombre>
+      <enlace>https://www.instagram.com/barakaldoclubdefutbol</enlace>
+    </redSocial>
+  </redesSociales>
+</equipo>

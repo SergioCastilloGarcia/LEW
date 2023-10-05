@@ -34,13 +34,11 @@
   </xs:complexType>
 </xs:element>
 
-<xs:complexType name="ColorType">
-  <xs:simpleContent>
-    <xs:extension base="xs:string">
+<xs:simpleType  name="ColorType">
+    <xs:restriction base="xs:token">
       <xs:pattern value="#[0-9A-Fa-f]{6}" />
-    </xs:extension>
-  </xs:simpleContent>
-</xs:complexType>
+    </xs:restriction>
+</xs:simpleType >
 
 <xs:complexType name="jugadoresType">
   <xs:sequence>

@@ -17,11 +17,12 @@ header {
 }
 
 header img {
-    width: 40%;
-    height: auto;
+    max-height: 8rem;
+    width: auto;
     grid-column: 1;
     grid-row: 1;
-    margin-left: 10%;
+    justify-self: center;
+    align-self: center;
 }
 
 header h1 {
@@ -65,7 +66,7 @@ main section:first-child h2 {
     margin: 15rem;
     height: fit-content;
     color: #1B1B1B;
-    font-size: 150%;
+    font-size: 3rem;
     text-align: center;
     background-color: white;
     border: 1em;

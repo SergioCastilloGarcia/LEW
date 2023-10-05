@@ -13,12 +13,12 @@
   <escudo>https://assets.stickpng.com/images/584ad377b519ea740933a8d5.png</escudo>
   <portada>https://estaticos-cdn.prensaiberica.es/clip/542c5434-84ab-41c4-9c1d-d2623dbdeb52_21-9-aspect-ratio_default_0.jpg</portada>
   <colorPrimario>#08066e</colorPrimario>
-  <colorSecundario>#fff</colorSecundario>
+  <colorSecundario>#ffffff</colorSecundario>
   <estadio>
     <nombreEstadio>Carlos Tartiere</nombreEstadio>
     <capacidad>30500</capacidad>
     <localizacion>La Ería</localizacion>
-    <fotoEstadio>https://www.lavozdeasturias.es/default/2021/05/12/00121620836504650174839/Foto/taaarti.jpg</fotoEstadio>
+    <fotoEstadio>https://live.staticflickr.com/65535/49080487612_997933aaff_5k.jpg</fotoEstadio>
   </estadio>
   <jugadores>
     <jugador>
