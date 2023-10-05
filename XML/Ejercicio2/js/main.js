@@ -12,16 +12,17 @@ class ConertidorXML {
     if (file) {
       const reader = new FileReader();
 
-      reader.onload = (event) => {
-        this.xmlContent = event.target.result;
-      };
+      reader.onload = (event) => this.readerOnLoad(event);
 
       reader.readAsText(file);
     } else {
       alert('Selecciona un archivo XML antes de subirlo.');
     }
   }
+readerOnLoad(event){
+  this.xmlContent = event.target.result;
 
+}
   async parseXML() {
     if (this.xmlContent) {
       const parser = new DOMParser();

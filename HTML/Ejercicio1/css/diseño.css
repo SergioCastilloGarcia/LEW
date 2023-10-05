@@ -78,8 +78,8 @@ section a {
     text-decoration: none;
     background-color: #007BFF;
     color: #fff;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
+    border: 0.1rem solid #007BFF;
+    border-radius: 1rem;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     /* Para que se muestre como un bloque en línea */
@@ -90,5 +90,5 @@ section a {
 section a:hover {
     background-color: #0056b3;
     /*Hereda color de a*/
-    border: 1px solid #0056b3;
+    border: 0.1rem solid #0056b3;
 }

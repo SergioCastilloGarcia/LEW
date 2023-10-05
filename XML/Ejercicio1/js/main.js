@@ -17,24 +17,25 @@ class Biblioteca {
       
     }catch(e){}
     const xhr = new XMLHttpRequest();
-    let subfolders = [];
-    let booksBasicInfo = [];
-    xhr.onreadystatechange = () => {//TODO sacar de aqui
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          const response = xhr.responseText;
-          subfolders = this.getSubfoldersNames(response);//Consigo las rutas de cada libro
-          booksBasicInfo=this.getBooksBasicInfo(subfolders);//Consigo el nombre de cada libro
-          this.addBooksToIndex(booksBasicInfo);
-        } else {
-          console.error('Error al obtener nombres de subcarpetas:', xhr.status);
-        }
-      }
-    };
-
+    xhr.onreadystatechange = () => this.getBooksOnReadyStateChange(xhr);
     xhr.open('GET', this.RUTA_BOOKS);
     xhr.send();
   }
+  //Metodo que encapsula el metodo OnReadyStateChange de la XMLHttpRequest
+  getBooksOnReadyStateChange(xhr){
+    let subfolders = [];
+    let booksBasicInfo = [];
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const response = xhr.responseText;
+        subfolders = this.getSubfoldersNames(response);//Consigo las rutas de cada libro
+        booksBasicInfo=this.getBooksBasicInfo(subfolders);//Consigo el nombre de cada libro
+        this.addBooksToIndex(booksBasicInfo);
+      } else {
+        console.error('Error al obtener nombres de subcarpetas:', xhr.status);
+      }
+    }
+  };
   //Metodo para parsear la respuesta de la peticion HTTP y conseguir los nombres de las subcarpetas
   getSubfoldersNames(response) {
     // Analizar la respuesta como HTML
@@ -144,22 +145,26 @@ class Biblioteca {
 
 //Metodo que carga el archivo xml en el cliente
   async readXML(ruta) {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
+    return new Promise((resolve, reject) => this.readXMLPromise(ruta,resolve,reject)); 
+  }
+  //Metodo que encapsula el metodo de la promise
+  readXMLPromise(ruta,resolve,reject){
+    const xhr = new XMLHttpRequest();
 
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            resolve(xhr.responseText);
-          } else {
-            reject(`Error al leer el archivo: ${xhr.status}`);
-          }
-        }
-      };
+    xhr.onreadystatechange = () => this.readXMLOnReadyStateChange(xhr,resolve,reject);
 
-      xhr.open('GET', ruta);
-      xhr.send();
-    });
+    xhr.open('GET', ruta);
+    xhr.send();
+  }
+  //Metodo que encapsula el metodo OnReadyStateChange de la XMLHttpRequest
+  readXMLOnReadyStateChange(xhr,resolve,reject){
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        resolve(xhr.responseText);
+      } else {
+        reject(`Error al leer el archivo: ${xhr.status}`);
+      }
+    }
   }
   //Dado un XML consigue la portada de un libro
   getCover(contenidoXML){

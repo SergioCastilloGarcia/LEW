@@ -19,7 +19,7 @@ main p {
     border-color: transparent;
     background-clip: padding-box;
     border-style: solid;
-    box-shadow: 0px 0px 0px 20px #FBB500;
+    box-shadow: 0 0 0 1rem #FBB500;
     margin-top: 10rem;
     padding: 2rem;
     grid-column: 2/-2;
