@@ -17,19 +17,23 @@ header {
     grid-column: 1/5;
     grid-row: 1;
 }
+
 /*0.0.1*/
 h1 {
     font-size: 3rem;
     cursor: pointer;
 }
+
 /*0.0.1*/
 h2 {
     font-size: 2.5rem;
 }
+
 /*0.0.1*/
 h3 {
     font-size: 2rem;
 }
+
 /*0.0.1*/
 aside {
     padding: 2em;
@@ -47,10 +51,12 @@ footer {
     grid-column: 1/5;
     grid-row: 4;
 }
+
 /*0.0.1*/
 p {
     font-size: 1.2rem;
 }
+
 /*0.0.1*/
 button {
 
@@ -65,59 +71,68 @@ button {
     cursor: pointer;
     margin-top: 2rem;
 }
+
 /*0.1.1*/
 button:hover {
     background-color: #0056b3;
     /*Hereda color de button*/
     border: 0.5rem solid #0056b3;
 }
+
 /*0.0.1*/
 main {
     grid-column: 1/5;
     grid-row: 2/4;
     color: #333;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5rem; /* Espacio entre las secciones */
-    padding:  5rem;
+    gap: 5rem;
+    /* Espacio entre las secciones */
+    padding: 5rem;
 }
+
 /*0.0.2*/
-main article{
+main article {
     max-width: 15rem;
     display: grid;
 }
+
 /*0.0.3*/
 main article h2 {
     text-align: center;
     font-size: 2rem;
 }
+
 /*0.0.2*/
 main article {
     padding: 2em;
     background-color: #fff;
 }
+
 /*0.0.3*/
-main article img{
+main article img {
     width: 100%;
     height: auto;
 }
+
 /*0.0.2*/
-main section{
+main section {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     background-color: #fff;
     width: 100%;
 }
+
 /*0.0.3*/
-main section p{
+main section p {
     font-size: 1.5rem;
 }
+
 /*0.0.3*/
 main section h2 {
     grid-row: 1;
     grid-column: 1/5;
     text-align: center;
 }
+
 /*0.0.3*/
 main section img {
     width: 20rem;
@@ -125,6 +140,7 @@ main section img {
     grid-column: 4;
     padding-right: 3rem;
 }
+
 /*0.0.3*/
 main section article {
     grid-row: 2;
@@ -132,26 +148,30 @@ main section article {
     max-width: fit-content;
     width: 100%;
 }
+
 /*0.0.4*/
-main section article p{
+main section article p {
     margin: 0;
     padding-bottom: 2rem;
     width: 100%;
 }
+
 /*0.0.4*/
-main section article h3{
+main section article h3 {
     margin: 0;
 }
+
 /*0.0.3*/
-main section h4{
+main section h4 {
     margin: 0;
     grid-row: 3;
     grid-column: 1/5;
     font-size: 2rem;
     padding-left: 3rem;
 }
+
 /*0.0.3*/
-main section nav{
+main section nav {
     padding: 2rem;
     grid-row: 4;
     grid-column: 1/5;
@@ -159,8 +179,9 @@ main section nav{
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 
 }
+
 /*0.0.4*/
-main section nav a{
+main section nav a {
     font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
@@ -171,6 +192,7 @@ main section nav a{
     cursor: pointer;
     margin: 0.8rem;
 }
+
 /*0.1.4*/
 main section nav a:hover {
     background-color: #0056b3;

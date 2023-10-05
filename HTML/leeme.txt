@@ -1,0 +1,12 @@
+Web personal:
+Tiene 4 páginas (indice, aficiones, diseño y Lolo). Cada una tiene un html y un css (hay una carpeta para los htmls y otra para los css). Hay una carpeta "resources" con las fotos.
+Por lo general utiliza grid para colocar los elementos. "diseño" y "lolo" utilizan también una list-item.
+
+Cueva El Soplao:
+Hay un css por cada elemento (menos "portada.css", que alberga el header y el nav), además de un css "main" para propiedades generales. Hay una carpeta "resources" con las fotos.
+También utiliza grid para colocar los elementos, aunque hay un algunos casos con flex e inline para colocar algunos elementos en horizontal.
+
+Respecto a los cambios sugeridos en clase:
+Comenté la especificidad de las propiedades css.
+Comenté los warnings respecto a los colores.
+Cambié un "aside" que tenía el index de la página personal por una section.

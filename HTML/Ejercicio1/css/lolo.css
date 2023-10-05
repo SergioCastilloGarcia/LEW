@@ -3,11 +3,13 @@ main {
     padding: 0rem;
     display: list-item;
 }
+
 /*0.0.1*/
 h3 {
     text-align: center;
     grid-column: 1/-1;
 }
+
 /*0.0.1*/
 section {
     display: grid;
@@ -15,6 +17,7 @@ section {
     /* Columnas autoajustables */
 
 }
+
 /*0.0.2*/
 section img {
     width: 80%;
