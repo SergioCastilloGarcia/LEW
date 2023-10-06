@@ -257,7 +257,8 @@ class ConertidorXML {
     modifiedHtml = modifiedHtml.replaceAll('{capacidad}', this.team.capacidad);
     modifiedHtml = modifiedHtml.replaceAll('{localizacion}', this.team.localizacion);
     modifiedHtml = modifiedHtml.replaceAll('{fotoEstadio}', this.team.fotoEstadio);
-
+    // Eliminar contenido dentro de etiquetas <script>, por si alguna extensión como liveServer lo añade
+    modifiedHtml = modifiedHtml.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
     const parser = new DOMParser();
     const doc = parser.parseFromString(modifiedHtml, 'text/html');
 
