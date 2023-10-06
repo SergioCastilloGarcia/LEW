@@ -85,8 +85,8 @@ main {
     grid-row: 2/4;
     color: #333;
     gap: 5rem;
-    /* Espacio entre las secciones */
     padding: 5rem;
+    display: flex;
 }
 
 /*0.0.2*/
