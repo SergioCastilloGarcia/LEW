@@ -109,3 +109,15 @@ section a:hover {
     /*Hereda color de a*/
     border: 0.1rem solid #0056b3;
 }
+
+@media only screen and (max-width: 700px) {
+
+    section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section img {
+        padding-top: 1rem;
+    }
+}
