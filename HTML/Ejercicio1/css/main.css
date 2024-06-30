@@ -54,6 +54,18 @@ main h2 {
     grid-column: 1/5;
 }
 
+main section p {
+    text-align: center;
+    font-size: 1.3rem;
+
+}
+
+main article section p {
+    text-align: left;
+    font-size: 1.3rem;
+
+}
+
 /*0.0.2*/
 section img {
     width: 90%;
